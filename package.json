@@ -2,6 +2,7 @@
   "name": "graent_heimili",
   "version": "0.1.0",
   "main": "index.js",
+  "author":"",
   "private": true,
   "dependencies": {
     "prop-types": "^15.6.0",
@@ -23,6 +24,7 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
+    "build": "webpack -p",
     "start": "node index2.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
