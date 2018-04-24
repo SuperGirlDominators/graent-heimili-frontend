@@ -1,0 +1,163 @@
+@import "_fonts.scss";
+@import "_mediaqueries.scss";
+@import "_colors.scss";
+@import "_variables.scss";
+
+.target {
+    display: block;
+    margin: 0 auto;
+}
+
+.white_curved_mask {
+    -webkit-mask-image: url('../assets/images/white_mask.png');
+    mask-image: url('../assets/images/white_mask.png');
+    mask-mode: luminance;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 80%;
+    background: white;
+    opacity: 0.4;
+    width:100vw;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top:0;
+
+    @media screen and (max-width: $breakpoint-phone) {
+        display:none;
+      }
+}
+.centerVerticalQuestions {
+  margin-top: 180px; }
+  .centerVerticalQuestions h1 {
+    font-size: 48px;
+    color: white;
+    font-family: 'Titillium Web';
+    font-weight: bold;
+    text-align: left; }
+  .centerVerticalQuestions h2 {
+    font-size: 30px;
+    color: white;
+    font-family: 'Titillium Web';
+    margin-bottom: 30px; }
+  .centerVerticalQuestions h3 {
+    font-size: 18px;
+    color: white;
+    font-family: 'Titillium Web';
+    line-height: 1.6; }
+  .centerVerticalQuestions p {
+    font-family: 'Titillium Web';
+    font-size: 25px;
+    color: #fff; }
+  .centerVerticalQuestions .educaationalInfo {
+    background-color: #75C0B0;
+    padding: 30px;
+  }
+
+.positionToRight {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  height: 70vh;
+  max-width: 50%;
+  margin-left:100px;
+}
+.whiteBackground {
+  background: #fff;
+  padding-top: 7px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  margin-right: 30px;
+  padding-left: 25px;
+}
+
+.my-checkbox {
+  background: #fff;
+  color: #249084;
+  font-family: 'Titillium Web';
+  font-weight: 200;
+  font-size: 20px;
+  width: 274px;
+  margin-right: 30px;
+  cursor: pointer;
+
+  span {
+    font-size: 20px;
+  }
+}
+.my-checkbox input {
+  opacity: 0;
+  position: absolute;
+}
+.my-checkbox span:before {
+  content: '✔';
+  padding-left: 5px;
+  display: inline-block;
+  height: 19px;
+  width: 19px;
+  border: 1px solid #249084;
+  border-radius: 50%;
+  font-size: 10px;
+  margin-right: 20px;
+}
+.my-checkbox input + span:before {
+  color: #249084;
+  background-color: #249084;
+}
+.my-checkbox input:hover + span:before {
+  color: #249084;
+  background-color: #249084;
+}
+.my-checkbox input:checked + span:before {
+  color: white;
+  background-color: #249084;
+}
+.my-checkbox input:checked:hover + span:before {
+  color: #249084;
+  background-color: white;
+}
+
+
+.play-button-outer {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 6em;
+    height: 100vh;
+    background-color: #3CB18F;
+    cursor: pointer;
+  }
+
+  .play-button {
+    margin: 0 auto;
+    top: 50%;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 1.4em 0 1.8em 3em;
+    border-color: transparent transparent transparent #fff;
+    opacity: .75;
+
+    .button_text {
+      position: absolute;
+      right: 60%;
+      bottom: -70px;
+      text-transform: uppercase;
+      color:$color-white;
+    }
+  }
+ 
+
+  .play-button-outer:hover {
+    background-color: rgba(0, 0, 0, .5);
+  }
+
+  .play-button-outer:hover .play-button {
+    opacity: 1;
+  }

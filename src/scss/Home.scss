@@ -1,0 +1,450 @@
+@import "_fonts.scss";
+@import "_mediaqueries.scss";
+@import "_colors.scss";
+@import "_variables.scss";
+
+html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+
+    &#homepage {
+        background: linear-gradient(90deg, #249084, #3EB490, #4CCC98, #54D99C, #68FFA8);
+    }
+
+}
+
+.target {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+}
+
+.luminance-target {
+    -webkit-mask-image: url('../assets/images/banner-mask.png');
+    mask-image: url('../assets/images/banner-mask.png');
+    mask-mode: luminance;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    width:1100px;
+    max-width: 100vw;
+    height: 100vh;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+        -webkit-mask-image: none;
+        mask-image: none;
+        opacity:0.8;
+    }
+}
+
+.banner-headline {
+    margin:190px 0px 0px 0px;
+
+    h1 {
+        font-family: TitilliumWeb-SemiBold;
+        font-size: 5em;
+        color:#fff;
+
+        @media screen and (max-width: $breakpoint-desktop) {
+            font-size: 3.5em;
+        }
+
+        @media screen and (max-width: $breakpoint-phone) {
+            font-size: 3em;
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-tablet) {
+        margin-left:15px;
+        margin-right:15px;
+    }
+}
+
+.support-text {
+
+    h3 {
+        font-family: MuktaMalar-Regular;
+        font-size: 1.125em;
+        color:#fff;
+        text-align: left;
+        line-height: inherit;
+
+        @media screen and (max-width: $breakpoint-desktop) {
+            margin-top: 30px;
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-tablet) {
+        margin-left:0;
+        margin-right:0;
+    }
+}
+
+.start-button {
+    margin-top:50px;
+
+    .next_button {
+        background: #fff;
+        color:#249084;
+        outline: none;
+        border-color: #fff;
+        display: inline-block;
+        font-family: TitilliumWeb-Regular;
+        font-size: 1.5rem;
+        text-align: left;
+        padding: 18px 25px 18px 40px;
+        position: relative;
+        text-decoration: none;
+        width: 400px;
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+        &:hover, &:focus, &:visited, &:active, &:hover:before, &hover:after, &focus:before, &:focus:after {
+            color: #249084 !important;
+            background-color: #fff !important;
+            border-color: #fff !important;
+            border:none !important;
+            outline:none !important;
+        }
+
+        @media screen and (max-width: $breakpoint-tablet) {
+          max-width: 370px;
+
+        }
+
+    }
+
+    .login_overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 10;
+
+        &:target {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    .login_popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 52%;
+        position: relative;
+        transition: all 5s ease-in-out;
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+
+            &:hover {
+                color: #06D85F;
+            }
+        }
+
+        .content {
+            max-height: 30%;
+            overflow: auto;
+            color:$color-green;
+            margin: 0px 40px 0px 40px;
+
+            .login_type_selection {
+                margin-top:70px;
+
+                .focus {
+                    background: $color-green;
+                    outline:none;
+                    color: $color-white;
+                    cursor: pointer;
+                }
+
+                .notactive {
+                    background: $color-white !important;
+                    color: $color-green !important;
+                }
+
+                .active {
+                    background: $color-green !important;
+                    color: $color-white !important;
+                }
+
+                p:nth-child(2) {
+                    font-family: TitilliumWeb-SemiBold;
+                    font-size: 1.1em;
+                    text-align: center;
+                }
+
+                p:nth-child(3) {
+                    font-family: TitilliumWeb-Light;
+                    font-size: 1em;
+                    text-align: center;
+                    line-height: inherit;
+                }
+
+                .activee {
+                  background: $color-green;
+                  color: $color-white;
+                }
+            }
+
+            .login_type {
+                width:49%;
+                display: inline-block;
+                border-radius: 0;
+                padding: 10px 18px;
+                background: $color-white;
+                color: $color-green;
+                margin-right: -2px;
+                border: 1px solid #249084;
+                letter-spacing: 1px;
+                -moz-transition: all 0.2s;
+                -webkit-transition: all 0.2s;
+                transition: all 0.2s;
+            }
+
+            #new_login {
+                margin-right: -2px;
+                -webkit-transition: all 1s ease-in-out;
+                -moz-transition: all 1s ease-in-out;
+                -o-transition: all 1s ease-in-out;
+                -ms-transition: all 1s ease-in-out;
+            
+                &:hover {
+                    background: $color-green;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    color:$color_white;
+                    margin-right: 1px;
+                    text-decoration: none;
+                }
+            }
+
+            #login {
+                margin-left: -2px;
+                -webkit-transition: all 1s ease-in-out;
+                -moz-transition: all 1s ease-in-out;
+                -o-transition: all 1s ease-in-out;
+                -ms-transition: all 1s ease-in-out;
+                
+                &:hover {
+                    background: $color-green;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    color:$color_white;
+                    margin-left: 0px;
+                    text-decoration: none;
+                }
+            }
+
+            #login_options {
+                text-align: center;
+
+                .social-button {
+                    background-position: 25px 0px;
+                    box-sizing: border-box;
+                    color: rgb(255, 255, 255);
+                    cursor: pointer;
+                    display: inline-block;
+                    height: 50px;
+                    line-height: 50px;
+                    font-family: TitilliumWeb-Regular;
+                    font-size: 1em;
+                    text-align: left;
+                    text-decoration: none;
+                    vertical-align: middle;
+                    width: 85%;
+                    border-color: $color-white;
+                    margin: 10px auto;
+                    outline: rgb(255, 255, 255) none 0px;
+                    padding-left: 20%;
+                    transition: all 0.2s cubic-bezier(0.72, 0.01, 0.56, 1) 0s;
+                    -webkit-transition: all .3s ease;
+                    -moz-transition: all .3s ease;
+                    -ms-transition: all .3s ease;
+                    -o-transition: all .3s ease;
+                    transition: all .3s ease;
+
+                    &:hover {
+                      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    }
+                }
+
+                #facebook-connect {
+                    border: 1px solid rgb(60, 90, 154);
+                    border-color: rgb(60, 90, 154);
+                    background: rgb(60, 90, 154) url('https://eswarasai.com/projects/social-login/img/facebook-white.svg') no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+                }
+
+                #google-connect {
+                    background: #F6F6F6 url('../assets/images/google.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+                    // border: 1px solid rgb(220, 74, 61);
+                    color:#505050;
+
+                    &:hover {
+
+                    }
+                }
+
+                #twitter-connect {
+                    background: rgb(85, 172, 238) url('../assets/images/twitter.png') no-repeat scroll 5px 1px / 45px 45px padding-box border-box;
+                    border: 1px solid rgb(85, 172, 238);
+                    background-size: 8%;
+                    background-position: 4%;
+                  }
+            }
+
+            .choice {
+                font-family: TitilliumWeb-Bold;
+                font-size: 1.4em;
+                text-align: center;
+                line-height: inherit;
+            }
+
+            #skip_login {
+              text-decoration: none;
+
+              .choice_1 {
+                  font-family: TitilliumWeb-Regular;
+                  font-size: 1em;
+                  text-align: center;
+                  line-height: inherit;
+                  color: $color-green;
+              }
+            }
+        }
+
+        @media screen and (max-width: $breakpoint-tablet) {
+            width: 70%;
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-tablet) {
+        margin-left:15px;
+        margin-right:15px;
+    }
+}
+
+.next_button {
+
+    &:after, &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      transition: all 0.5s ease-in-out;
+    }
+    &:before {
+      top: 50%;
+      right: 1em;
+      width: $arrow-size;
+      height: $arrow-size;
+      transform-origin: 50% 50%;
+      transform:  translate(0, -($arrow-size / 2)) rotate(45deg);
+      box-shadow: inset -#{$arrow-border} $arrow-border 0 0 $arrow-color;
+      border-radius: 0 $arrow-size*0.15 0 0;
+    }
+
+    &:after {
+      top: 50%;
+      right: 1em;
+      width: 2.91em;
+      height: $arrow-border;
+      transform:  translate(0, -($arrow-border / 2));
+      background-color: $arrow-color;
+    }
+    &:hover {
+      &:before {
+        transform:  translate(0.5em, -($arrow-size / 2)) rotate(45deg);
+      }
+      &:after {
+        transform:  translate(0.5em, -($arrow-border / 2));
+        width:2em;
+        background-color: #249084 !important;
+
+      }
+    }
+  }
+
+.share-social {
+    position: relative;
+    text-align:right;
+    margin-top: 30px;
+    z-index: 10;
+
+    .social {
+        display:inline-block;
+        width:40px;
+        height:40px;
+        margin-left: 20px;
+        line-height:40px;
+        font-size:20px;
+        text-align:center;
+        color:#fff;
+        border:2px solid #fff;
+        border-radius:50%;
+        overflow:hidden;
+        transition:color .3s;
+
+        &:hover {
+            color: #249084;
+            cursor: pointer;
+            border: 2px solid #249084;
+        }
+    }
+
+    .social_overlay {
+
+        color:#249084;
+        border:2px solid #249084;
+        border-radius:50%;
+        overflow:hidden;
+        transition:color .3s;
+
+        &:hover {
+            color: #249084;
+            cursor: pointer;
+            border: 2px solid #249084;
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-desktop) {
+        margin-top: 100px;
+    }
+}

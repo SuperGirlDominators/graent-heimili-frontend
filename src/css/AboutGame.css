@@ -1,0 +1,223 @@
+@font-face {
+  font-family: TitilliumWeb-Bold;
+  src: url("../assets/fonts/TitilliumWeb-Bold.ttf"); }
+
+@font-face {
+  font-family: TitilliumWeb-SemiBold;
+  src: url("../assets/fonts/TitilliumWeb-SemiBold.ttf"); }
+
+@font-face {
+  font-family: TitilliumWeb-Regular;
+  src: url("../assets/fonts/TitilliumWeb-Regular.ttf"); }
+
+@font-face {
+  font-family: TitilliumWeb-Light;
+  src: url("../assets/fonts/TitilliumWeb-Light.ttf"); }
+
+@font-face {
+  font-family: MuktaMalar-Regular;
+  src: url("../assets/fonts/MuktaMalar-Regular.ttf"); }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit; }
+
+#aboutgame {
+  background: linear-gradient(90deg, #249084, #3EB490, #4CCC98, #54D99C, #68FFA8); }
+
+@media screen and (max-width: 768px) {
+  .luminance-mask {
+    -webkit-mask-image: none;
+    mask-image: none;
+    opacity: 0.5; } }
+
+.centerVertical {
+  margin-top: 170px;
+  padding-left: 0px;
+  padding-right: 0px; }
+
+h1.headline {
+  font-size: 40px;
+  color: white;
+  text-align: left;
+  font-family: 'Titillium Web'; }
+  @media screen and (max-width: 1024px) {
+    h1.headline {
+      font-size: 3.5em; } }
+  @media screen and (max-width: 500px) {
+    h1.headline {
+      font-size: 3em;
+      margin-left: 30px;
+      margin-right: 30px; } }
+
+h2.subHeadline {
+  font-size: 24px;
+  line-height: 1.6;
+  color: white;
+  text-align: left;
+  font-family: 'Titillium Web';
+  margin-bottom: 50px; }
+  @media screen and (max-width: 500px) {
+    h2.subHeadline {
+      font-size: 1.2em;
+      margin-left: 30px;
+      margin-right: 20px; } }
+
+.steps {
+  background-color: #fff;
+  max-width: 582px;
+  height: 75px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 50px; }
+  @media screen and (max-width: 500px) {
+    .steps {
+      max-width: 350px;
+      height: 56px;
+      margin-left: 15px;
+      margin-bottom: 30px; } }
+
+p.steps_Headline {
+  position: relative;
+  margin-left: 20px;
+  padding-top: 13px;
+  font-family: 'Titillium Web';
+  font-size: 30px;
+  color: white; }
+  @media screen and (max-width: 500px) {
+    p.steps_Headline {
+      font-size: 18px; } }
+
+p.steps_subtext {
+  position: relative;
+  z-index: 1000;
+  margin-top: -60px;
+  margin-left: 55px;
+  color: white;
+  font-family: 'Titillium Web';
+  font-size: 14px; }
+  @media screen and (max-width: 500px) {
+    p.steps_subtext {
+      font-size: 10px;
+      margin-top: -50px; } }
+
+#pointerDarkGreen {
+  width: 100%;
+  height: 75px;
+  position: relative;
+  background-color: #249084; }
+  @media screen and (max-width: 500px) {
+    #pointerDarkGreen {
+      height: 56px; } }
+
+#pointerDarkGreen:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 37.5px solid  #54D99C;
+  border-top: 37.5px solid transparent;
+  border-bottom: 37.5px solid transparent; }
+  @media screen and (max-width: 500px) {
+    #pointerDarkGreen:after {
+      border-left: 28px solid  #54D99C;
+      border-top: 28px solid transparent;
+      border-bottom: 28px solid transparent;
+      right: -28px; } }
+
+#pointerDarkGreen:before {
+  content: "";
+  z-index: 1000;
+  position: absolute;
+  right: -37.5px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 37.5px solid #249084;
+  border-top: 37.5px solid transparent;
+  border-bottom: 37.5px solid transparent; }
+  @media screen and (max-width: 500px) {
+    #pointerDarkGreen:before {
+      border-left: 28px solid  #249084;
+      border-top: 28px solid transparent;
+      border-bottom: 28px solid transparent;
+      right: -28px; } }
+
+#pointerWhite {
+  width: 100%;
+  height: 75px;
+  position: relative;
+  background-color: #fff; }
+  @media screen and (max-width: 500px) {
+    #pointerWhite {
+      height: 56px; } }
+
+.col-md-3 {
+  padding-left: 0px;
+  padding-right: 0px; }
+
+.col-md-6 {
+  padding-left: 0px;
+  padding-right: 0px; }
+
+.col-md-12 {
+  padding-left: 0px;
+  padding-right: 0px; }
+
+#pointerLightGreen {
+  width: 100%;
+  height: 75px;
+  position: relative;
+  background-color: #54D99C; }
+  @media screen and (max-width: 500px) {
+    #pointerLightGreen {
+      height: 56px; } }
+
+.col-md-3 {
+  padding-left: 0px;
+  padding-right: 0px; }
+
+.col-md-6 {
+  padding-left: 0px;
+  padding-right: 0px; }
+
+.col-md-12 {
+  padding-left: 0px;
+  padding-right: 0px; }
+
+#pointerWhite .imageOne {
+  margin-left: 55px;
+  padding-top: 12px; }
+  @media screen and (max-width: 500px) {
+    #pointerWhite .imageOne {
+      width: 50%;
+      margin-left: 35px;
+      padding-top: 10px; } }
+
+#pointerWhite .imageTwo {
+  margin-left: 63px;
+  padding-top: 7px; }
+  @media screen and (max-width: 500px) {
+    #pointerWhite .imageTwo {
+      width: 35%;
+      margin-left: 40px;
+      padding-top: 7px; } }
+
+#pointerWhite .imageThree {
+  margin-left: 58px;
+  padding-top: 13px; }
+  @media screen and (max-width: 500px) {
+    #pointerWhite .imageThree {
+      width: 45%;
+      margin-left: 40px;
+      padding-top: 11px; } }
+
+/*
+  .next_button {
+    margin: auto;
+    width: 50%;
+  }
+  */

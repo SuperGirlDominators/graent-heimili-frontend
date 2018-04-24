@@ -1,0 +1,26 @@
+$font-path: "../assets/fonts" !default;
+
+@font-face {
+  font-family: TitilliumWeb-Bold;
+  src: url("#{$font-path}/TitilliumWeb-Bold.ttf");
+}
+
+@font-face {
+  font-family: TitilliumWeb-SemiBold;
+  src: url("#{$font-path}/TitilliumWeb-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: TitilliumWeb-Regular;
+  src: url("#{$font-path}/TitilliumWeb-Regular.ttf");
+}
+
+@font-face {
+  font-family: TitilliumWeb-Light;
+  src: url("#{$font-path}/TitilliumWeb-Light.ttf");
+}
+
+@font-face {
+  font-family: MuktaMalar-Regular;
+  src: url("#{$font-path}/MuktaMalar-Regular.ttf");
+}

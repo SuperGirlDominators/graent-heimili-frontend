@@ -1,0 +1,37 @@
+@import "_mediaqueries.scss";
+
+.menu-active {
+    z-index: 2;
+
+    .share-social {
+        .social {
+            color: #249084;
+            cursor: pointer;
+            border: 2px solid #249084;}
+    }
+}
+
+.share-social {
+
+    .social {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin-left: 20px;
+        line-height: 40px;
+        font-size: 20px;
+        text-align: center;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: color .3s;
+
+        &:hover {
+            color: #249084;
+            cursor: pointer;
+            border: 2px solid #249084;
+        }
+    }
+}
+

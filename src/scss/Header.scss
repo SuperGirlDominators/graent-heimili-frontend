@@ -1,0 +1,214 @@
+@import "_mediaqueries.scss";
+
+header {
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+    width:100%;
+}
+
+.navbar-inverse {
+    background-color: transparent;
+    border-color: transparent;
+
+      .container-fluid {
+        padding:0;
+      }
+}
+
+.navbar {
+    margin-top: 4%;
+    padding:0;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+        padding-left:15px;
+    }
+}
+
+.logo img {
+    width: 150px;
+}
+
+.shrink .logo img {
+    width: 125px;
+}
+
+.shrink .navbar {
+  margin-top: 1%;
+  padding: 0;
+  margin-bottom: 7px;
+}
+
+.shrink {
+  background-color: #ffffff;
+  transition: all 0.5s ease;
+  box-shadow: 0 8px 20px -4px #0000002e;
+}
+
+.shrink .nav.navbar-right {
+  margin-top: 10px;
+}
+.shrink .button_container span {
+  background: #6db4ac;
+}
+
+.button_container {
+    position: relative;
+    top: 5%;
+    right: 2%;
+    height: 27px;
+    width: 35px;
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity .25s ease;
+
+    &:hover {
+        opacity: .7;
+    }
+
+    &.active .top {
+        transform: translateY(11px) translateX(0) rotate(45deg);
+        background: #249084;
+    }
+
+    &.active .middle {
+        opacity: 0;
+        background: #FFF;
+    }
+
+    &.active .bottom {
+        transform: translateY(-9px) translateX(0) rotate(-45deg);
+        background: #249084;
+    }
+
+    span {
+        background: #fff;
+        border: none;
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all .35s ease;
+        cursor: pointer;
+    }
+
+    span:nth-of-type(2) {
+        top: 10px;
+        width: 25px;
+        right: 0 !important;
+        left: unset;
+    }
+
+    span:nth-of-type(3) {
+        top: 20px;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      position: absolute;
+      top: 12%;
+    }
+  }
+
+
+.overlay {
+    position: fixed;
+    background: #fff;
+    top: 0;
+    right: 0;
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, width .35s;
+    overflow: hidden;
+
+    &.open {
+        opacity: 10;
+        visibility: visible;
+        height: 100%;
+        width: 26%;
+
+        @media screen and (max-width: $breakpoint-phone) {
+            width:100%;
+        }
+    }
+
+    &.open li {
+        animation: fadeInRight .5s ease forwards;
+        animation-delay: .35s;
+    }
+
+    &.open li:nth-of-type(2) {
+        animation-delay: .4s;
+    }
+
+    &.open li:nth-of-type(3) {
+        animation-delay: .45s;
+    }
+
+    &.open li:nth-of-type(4) {
+        animation-delay: .50s;
+    }
+
+    nav {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            text-align: right;
+            display: inline-block;
+            position: relative;
+            height: 100%;
+            width:100%;
+            max-width: 150px;
+
+            #login {
+                margin-top: 90px;
+            }
+
+            li {
+                display: block;
+                height: 25%;
+                height: calc(100% / 4);
+                min-height: 58px;
+                position: relative;
+                opacity: 0;
+
+                a {
+                    display: block;
+                    // position: relative;
+                    font-family: TitilliumWeb-Regular;
+                    font-size: 1em;
+                    color: #249084;
+                    text-decoration: none;
+
+                    &:hover, &:focus, &:active:after {
+                        width: 100%;
+                        text-decoration: underline;
+                        transition-timing-function: ease-out;
+                        transition: 0.25s;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      left: 20%;
+    }
+    100% {
+      opacity: 1;
+      left: 0;
+    }
+  }

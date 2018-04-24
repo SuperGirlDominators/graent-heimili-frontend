@@ -1,0 +1,239 @@
+@import "_fonts.scss";
+@import "_mediaqueries.scss";
+@import "_colors.scss";
+
+
+.home{
+  width:100%;
+}
+.banner_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    z-index: 20;
+
+    &:target {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.banner_image {
+    // background-image: url('./assets/images/confetti_image.png')
+}
+
+.banner_popup {
+    margin: 120px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 70%;
+    height: 75vh;
+    position: relative;
+    transition: all 5s ease-in-out;
+
+    h3 {
+        font-family: TitilliumWeb-SemiBold;
+        font-size: 2.1em;
+        color:$color-green;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    h1 {
+        font-family: TitilliumWeb-Bold;
+                font-size: 3.4em;
+                color:$color-green;
+                text-align: center;
+                line-height: inherit;
+
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+
+        &:hover {
+            color: #06D85F;
+        }
+    }
+
+    #wrapper {
+        width: 80%;
+        max-height: 292px;
+        height: 50%;
+        margin: 0 auto;
+        transform: rotate(180deg);
+        display: flex;
+        justify-content: center;
+
+        .finished {
+
+            &:after {
+                display: table;
+                content:'';
+                background-image: url('../assets/images/success_chr.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 100%;
+                width: 100%;
+                background-position: 59% 70%;
+                position: relative;
+                top: 100%;
+                max-height: 100px;
+                -webkit-transform: rotate(180deg); 
+                -moz-transform: rotate(180deg); 
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+            }
+        }
+
+        .complete_step_one {
+            background-color: $color-green;
+        }
+
+        .complete_step_two {
+            background-color: #347F90;
+        }
+
+        .complete_step_three {
+            background-color: #C83D6B;
+        }
+
+        .complete_step_four {
+            background-color: #D18326;
+        }
+
+        .complete_step_five {
+            background-color: #694694;
+        }
+           
+
+    }
+    
+    .bar {
+        float: left;
+        width: 16%;
+        height: 100%;
+        margin: 0.13%;
+        position: relative;
+        background-color:#d5d5d5;
+
+
+
+        .bar_number {
+            display:block;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 42%;
+            margin-right: -50%;
+            color:$color-white;
+            font-family: TitilliumWeb-Bold;
+            font-size: 2em;
+            -webkit-transform: rotate(180deg); 
+            -moz-transform: rotate(180deg); 
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+        }
+       
+        
+    }
+    
+    .stepone {
+        height: 15%;
+
+        .one {
+            top:0%;
+        }
+    }
+    
+    .steptwo {
+        height: 30%;
+
+        .two {
+            top:22%;
+        }
+    }
+    
+    .stepthree {
+        height: 45%;
+
+        .three {
+            top:33%;
+        }
+    }
+    
+    .stepfour {
+        height: 60%;
+
+        .four {
+            top:43%;
+        }
+    }
+
+    .stepfive {
+        height: 75%;
+
+        .five {
+            top:52%;
+        }
+    }
+
+    .hl {
+      
+        border-bottom: 0.98px solid #979797;
+        z-index: 1000000;
+        position: absolute;
+        width:100%;
+    }
+
+    .btn_selection {
+        margin: 0 auto;
+        width: 80%;
+        margin-top: 5%;
+
+        button {
+            font-family: TitilliumWeb-Regular;
+        }
+
+        .svg-inline--fa {
+            margin-right:1em;
+        }
+
+        .share {
+            margin-right: 2%;
+        }
+    
+        .btn-lg {
+            width:180px;
+            background-color: $color-green;
+            color: $color-white;
+            border-color:$color-green;
+            border-radius: 0%;
+            outline:none;
+        }
+
+        .next_step {
+            position: absolute;
+            right: 11.7%;
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-tablet) {
+        width: 70%;
+    }
+}
