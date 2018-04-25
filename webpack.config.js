@@ -1,5 +1,7 @@
+const path = require('path');
+
 module.exports = {
-  entry: './src/index.js',
+  entry: './index.js',
 
 
   output: {
@@ -14,17 +16,16 @@ module.exports = {
 
 
   module: {
-    loaders: [{
+    rules: [{
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: [
-
+        loader: [
           'babel-loader'
         ]
       },
       {
         test: /\.scss$/,
-        loaders: [
+        loader: [
           'style-loader',
           'css-loader',
           "postcss-loader",
@@ -33,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: [
+        loader: [
           'style-loader',
           'css-loader',
           "postcss-loader",
@@ -43,8 +44,8 @@ module.exports = {
 
       {
         test: /\.(jpg|png)$/,
-          loader: "url-loader?limit=5500000",
-          include: path.join(__dirname, 'assets')
+          use: "file-loader",
+          include: path.join(__dirname + '../src/assets')
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
@@ -54,6 +55,14 @@ module.exports = {
         loader: "url-loader?limit=10000&mimetype=application/font-woff"
       }, {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/octet-stream"
+      },
+      {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/octet-stream"
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: "url-loader?limit=10000&mimetype=application/octet-stream"
       },
     ]
