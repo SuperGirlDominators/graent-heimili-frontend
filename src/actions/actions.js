@@ -1,7 +1,7 @@
 import * as actionTypes from "../actionTypes/actionTypes";
 import firebase from 'firebase';
 
-const databaseURL = "http://localhost:8080/api"
+const databaseURL = "http://localhost:3003/api"
 
 function requestCreateProfile() {
   return {
@@ -302,14 +302,3 @@ export const CurrentStep = (current_step)=> {
     current_step
   };
 }
-
-
-
-
-
-
-
-
-
-
-

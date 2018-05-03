@@ -1,11 +1,9 @@
 const path = require('path');
-
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './index.js',
-
-
   output: {
-    path: __dirname + '/build',
+    path:path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: '/build/'
   },
@@ -13,6 +11,11 @@ module.exports = {
     historyApiFallback: true,
     contentBase: './'
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html'
+    })
+  ],
 
 
   module: {

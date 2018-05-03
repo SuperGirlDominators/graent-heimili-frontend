@@ -23,21 +23,21 @@ class Login extends Component {
  }
 
   componentDidMount() {
-    $(document).ready(function() {     
-      $('.button-two').hover(function(){   
-        $('.button-one').removeClass('focus');  
-        $('.button-two').addClass('focus');  
+    $(document).ready(function() {
+      $('.button-two').hover(function(){
+        $('.button-one').removeClass('focus');
+        $('.button-two').addClass('focus');
         $("#choice").html("Ekki með aðgang?");
-        $("#choice_1").html("Skráðu þig inn á eftir");      
+        $("#choice_1").html("Skráðu þig inn á eftir");
       });
 
-      $('.button-one').hover(function(){   
-        $('.button-two').removeClass('focus');  
-        $('.button-one').addClass('focus');    
+      $('.button-one').hover(function(){
+        $('.button-two').removeClass('focus');
+        $('.button-one').addClass('focus');
         $("#choice").html("EÐA");
-        $("#choice_1").html("Skelltu þér þá yfir í nýskráningu!");   
+        $("#choice_1").html("Skelltu þér þá yfir í nýskráningu!");
       });
-    }); 
+    });
   }
 
   componentWillMount(){
@@ -121,7 +121,7 @@ class Login extends Component {
 
 
   render() {
-  
+
     const { navigate } = this.state
     if (navigate) {
       return <Redirect to={this.props.destination} push={true} />

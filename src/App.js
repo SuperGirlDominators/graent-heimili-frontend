@@ -40,7 +40,7 @@ class App extends Component {
     let imageStyle;
     if (this.props.location.pathname === '/' || this.props.location.pathname === '/about-game') {
       maskClass = 'target home-luminance-target';
-      imageStyle = { backgroundImage: `url(${homeBanner})` }; 
+      imageStyle = { backgroundImage: `url(${homeBanner})` };
     }
     const footerClass = this.state.menuOpen ? 'menu-active' : '';
     return (

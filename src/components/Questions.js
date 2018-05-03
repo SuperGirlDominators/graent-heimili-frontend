@@ -52,7 +52,7 @@ class Questions extends Component {
 
     if(currQuest.currentQuestion === this.props.questions.length) {
       this.handleSubmit();
-    } 
+    }
     else {
       this.setState(currQuest);
     }
@@ -61,7 +61,7 @@ class Questions extends Component {
   handleSubmit() {
     if(firebase.auth().currentUser) {
       // console.log(firebase.auth().currentUser)
-      this.setState({login:true}); 
+      this.setState({login:true});
     }
     this.props.actions.postChoices(this.props.choices);
     const choicesValue = this.props.choices;
@@ -80,7 +80,7 @@ class Questions extends Component {
     data.unSelectedChoices = unSelectedChoices;
     // console.log(this.props.profileData.user.uid)
     data.userID = this.props.profileData.user ? this.props.profileData.user.uid : null;
-    const url = "http://localhost:8080/api/userchoices";
+    const url = "http://localhost:3003/api/userchoices";
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append('Accept','application/json');
@@ -119,7 +119,7 @@ class Questions extends Component {
     clickedItems.push(clickedItem);
   }
 
-  
+
 
   render() {
     const { questions } = this.props;
@@ -184,7 +184,7 @@ class Questions extends Component {
           </div>
           </div>
 
-        
+
 
         </div>
           { isAChoiceSelected &&
