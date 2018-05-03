@@ -3,161 +3,400 @@
 @import "_colors.scss";
 @import "_variables.scss";
 
-.target {
-    display: block;
-    margin: 0 auto;
-}
+#quiz_page {
+  background: linear-gradient(90deg, #249084, #3EB490, #4CCC98, #54D99C, #68FFA8);
+  overflow: hidden;
 
-.white_curved_mask {
-    -webkit-mask-image: url('../assets/images/white_mask.png');
-    mask-image: url('../assets/images/white_mask.png');
-    mask-mode: luminance;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-size: 80%;
-    background: white;
-    opacity: 0.4;
-    width:100vw;
-    height: 100vh;
-    position: absolute;
-    right: 0;
-    top:0;
+  .luminance-mask {
+    @media screen and (max-width: $breakpoint-mediumDown) {
+      display: none;
+    }
+  }
+
+  .luminance-target {
+    max-width: 100vw;
+    width:100%;
+    opacity: 0.3;
+  }
+
+  .socials {
+    position: relative;
+    bottom: 0;
+    right: 40%;
+
+    @media screen and (max-width: $breakpoint-mediumDown) {
+      position: relative !important;
+      bottom: 0 !important;
+      right: 40% !important;
+    }
 
     @media screen and (max-width: $breakpoint-phone) {
+      position: relative !important;
+      bottom: 20px !important;
+      right: 25% !important;
+    }
+   
+  }
+
+  .choice_content {
+    margin-top:155px;
+    color:$color-white;
+  
+    .question_step {
+      font-family: 'TitilliumWeb-Light';
+      font-size: 20px;
+    }
+
+    .question_name {
+      font-family: TitilliumWeb-Bold;
+      font-size: 40px;
+
+
+      @media screen and (max-width: $breakpoint-mediumDown) {
+        width: 90%;
+      }
+    }
+
+    .quiz_progress {
+      display: flex;
+      flex-direction: row;
+  
+      .hl {
+        border: 2px solid #fff;
+        width: 50px;
+        opacity:0.4;
+        margin-top:10px;
+        margin-bottom:10px;
+      }
+      .complete, .current {
+        opacity: 1;
+      }
+  
+      .questionone {
+        margin-right:10px;
+      }
+
+      .questiontwo {
+        margin-right:10px;
+      }
+
+      .questionthree {
+        margin-right:10px;
+      }
+
+      .questionfour {
+        margin-right:10px;
+      }
+    }
+
+    .quiz_tip, .mb_quiz_tip {
+      background-color: #75C0B0;
+      padding: 15px 20px 3px 30px;
+      margin-top: 4em;
+      font-family: TitilliumWeb-SemiBold;
+
+      h2 { 
+        font-size: 30px;
+      }
+
+      h3 {
+        font-size: 16px;
+        margin-bottom: 2em;
+        line-height: 1.4em;
+        word-wrap: break-word;
+      }
+
+      @media screen and (max-width: $breakpoint-mediumDown) {
+        display: none;
+      }
+    }
+
+    .mb_quiz_tip {
+      display: none;
+      margin-top:0px !important;
+
+      .question_step, .quiz_progress, .question_name {
         display:none;
       }
-}
-.centerVerticalQuestions {
-  margin-top: 180px; }
-  .centerVerticalQuestions h1 {
-    font-size: 48px;
-    color: white;
-    font-family: 'Titillium Web';
-    font-weight: bold;
-    text-align: left; }
-  .centerVerticalQuestions h2 {
-    font-size: 30px;
-    color: white;
-    font-family: 'Titillium Web';
-    margin-bottom: 30px; }
-  .centerVerticalQuestions h3 {
-    font-size: 18px;
-    color: white;
-    font-family: 'Titillium Web';
-    line-height: 1.6; }
-  .centerVerticalQuestions p {
-    font-family: 'Titillium Web';
-    font-size: 25px;
-    color: #fff; }
-  .centerVerticalQuestions .educaationalInfo {
-    background-color: #75C0B0;
-    padding: 30px;
+
+      .quiz_tip {
+        display: block;
+
+        @media screen and (max-width: $breakpoint-mediumDown) {
+          margin-top:2em;
+          padding: 2px 5px 3px 10px;
+        }
+      }
+
+      @media screen and (max-width: $breakpoint-mediumDown) {
+        display: block;
+        margin-left: 15px;
+        margin-right: 30px;
+        margin-top:2em;
+        width:80%;
+        padding: 2px 5px 3px 10px;
+      }
+
+      @media screen and (max-width: $breakpoint-phone) {
+        margin-left: 15px;
+        margin-right: 15px;
+        width:90% !important;
+      }
+
+    }
+
+    .view_up {
+      display: none;
+      position: absolute;
+      top: 20%;
+      left: 58.5%;
+      border-color: transparent;
+      background-color: transparent;
+      outline: none;
+      z-index: 20;
+  
+      i {
+        border: solid #fff;
+        border-width: 0 6px 6px 0;
+        display: inline-block;
+        padding: 16px;
+      }
+  
+      .up {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+      }
+    }
+
+    .choice_selection {
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: row;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      height: 60vh;
+      max-width: 50%;
+      margin-left: 100px;
+      margin-top: 50px;
+      overflow: hidden;
+      z-index: 1;
+  
+      div:nth-child(1) {
+        margin-top: 50px;
+  
+        @media screen and (max-width: $breakpoint-mediumDown) {
+          margin-top: 0px;
+        }
+      }
+  
+      .label_wrap {
+        background: #fff;
+        margin-bottom: 30px;
+        margin-right: 30px;
+        transition: transform 0.6s ease;
+  
+        .my_choices {
+          margin-bottom:0;
+          display: flex;
+          flex-direction: row;
+          transition: box-shadow 1s;
+          background-color: #fff;
+          font-family: 'Titillium Web';
+          font-weight: 200;
+          font-size: 20px;
+          width: 500px;
+          height: 100%;
+    
+          input {
+            width:0;
+            height:0;
+            opacity: 0;
+          }
+      
+          input + span:before {
+            color: #249084;
+            background-color: #249084;
+            border-radius: 120%;
+            height: 18px;
+            width: 18px;
+          }
+    
+          input:hover + span:before {
+            color: #249084;
+            background-color: #249084;
+          }
+    
+          input[type="checkbox"]:checked + span {
+            content:"\2713";
+            border: 2px solid white;
+            color: white;
+            background-color: #249084;
+            -webkit-box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+            0 5px 15px 0 rgba(0,0,0,0.08);
+            -moz-box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+            0 5px 15px 0 rgba(0,0,0,0.08);
+            box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+            0 5px 15px 0 rgba(0,0,0,0.08);
+            transition: box-shadow 0.1s ease-in-out;
+          }
+    
+          input[type="checkbox"]:checked + span:before {
+            color: white;
+            background-color: #249084;
+          }
+    
+          span {
+            display:block;
+            position:relative;
+            font-family: 'Titillium Web';
+            background:#fff;
+            color: #249084;
+            font-size:20px;
+            padding: 15px 82px 15px 55px;
+            box-sizing:border-box;
+            width:500px;
+            height: 100%;
+            text-align:left;
+            overflow:hidden;
+            z-index:2;
+            cursor:pointer;
+    
+            &:before {
+              content:"\2713";
+              position:absolute;
+              left: 5%;
+              top: 36%;
+              box-sizing:border-box;
+              font-size:16px;
+              color:white;
+              transition:all .4s;
+              z-index:1;
+            }
+  
+            @media screen and (max-width: $breakpoint-phone) {
+              width:305px;
+              max-width:100%;
+            }
+          }
+  
+          &:hover {
+            box-shadow: 0 0 3px #515151;
+          }
+        }
+      }
+
+      @media screen and (max-width: $breakpoint-mediumDown) {
+        height:auto;
+        margin-left: 0px;
+        max-width:100%;
+      }
+
+      @media screen and (max-width: $breakpoint-tablet) and  (min-width: $breakpoint-phone){
+        width:400px
+      }
+
+      @media screen and (max-width: $breakpoint-phone) {
+        margin-left:0;
+        width:320px;
+        max-width:100%;
+        height: auto;
+        z-index: 0;
+      }
+    }
+  
+    .view_more {
+      position: absolute;
+      bottom: 8%;
+      left: 58.5%;
+      border-color: transparent;
+      background-color: transparent;
+      outline: none;
+    
+      i {
+        border: solid #fff;
+        border-width: 0 6px 6px 0;
+        display: inline-block;
+        padding: 16px;
+      }
+      
+      .down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+  
+      @media screen and (max-width: $breakpoint-mediumDown) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: $breakpoint-mediumDown) {
+      margin-top:90px;
+    }
   }
 
-.positionToRight {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  height: 70vh;
-  max-width: 50%;
-  margin-left:100px;
-}
-.whiteBackground {
-  background: #fff;
-  padding-top: 7px;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-  margin-right: 30px;
-  padding-left: 25px;
-}
-
-.my-checkbox {
-  background: #fff;
-  color: #249084;
-  font-family: 'Titillium Web';
-  font-weight: 200;
-  font-size: 20px;
-  width: 274px;
-  margin-right: 30px;
-  cursor: pointer;
-
-  span {
-    font-size: 20px;
-  }
-}
-.my-checkbox input {
-  opacity: 0;
-  position: absolute;
-}
-.my-checkbox span:before {
-  content: '✔';
-  padding-left: 5px;
-  display: inline-block;
-  height: 19px;
-  width: 19px;
-  border: 1px solid #249084;
-  border-radius: 50%;
-  font-size: 10px;
-  margin-right: 20px;
-}
-.my-checkbox input + span:before {
-  color: #249084;
-  background-color: #249084;
-}
-.my-checkbox input:hover + span:before {
-  color: #249084;
-  background-color: #249084;
-}
-.my-checkbox input:checked + span:before {
-  color: white;
-  background-color: #249084;
-}
-.my-checkbox input:checked:hover + span:before {
-  color: #249084;
-  background-color: white;
-}
-
-
-.play-button-outer {
+  .play-button-outer {
     display: none;
     position: fixed;
     top: 0;
     right: 0;
     width: 6em;
     height: 100vh;
-    background-color: #3CB18F;
+    background-color: #249084;
     cursor: pointer;
-  }
 
-  .play-button {
-    margin: 0 auto;
-    top: 50%;
-    position: relative;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 1.4em 0 1.8em 3em;
-    border-color: transparent transparent transparent #fff;
-    opacity: .75;
+    .play-button {
+      margin: 0 auto;
+      top: 50%;
+      position: relative;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 1.4em 0 1.8em 3em;
+      border-color: transparent transparent transparent #fff;
+      opacity: .75;
+  
+      .button_text {
+        position: absolute;
+        right: 60%;
+        bottom: -85px;
+        text-transform: uppercase;
+        color:$color-white;
 
-    .button_text {
-      position: absolute;
-      right: 60%;
-      bottom: -70px;
-      text-transform: uppercase;
-      color:$color-white;
+        @media screen and (max-width: $breakpoint-mediumDown) {
+          position: fixed;
+          transform: rotate(450deg);
+          right: -4px;
+          bottom:auto;
+          top: 38%;
+        }
+      }
+
+      @media screen and (max-width: $breakpoint-mediumDown) {
+        border-style: unset;
+      }
+    }
+    
+    &:hover {
+      opacity:.7;
+    }
+
+    @media screen and (max-width: $breakpoint-mediumDown) {
+      width: 3em;
     }
   }
+
+  @media screen and (max-width: $breakpoint-mediumDown) {
+    overflow-y: scroll;
+    height:auto;
+  }
+}
+
+
  
 
-  .play-button-outer:hover {
-    background-color: rgba(0, 0, 0, .5);
-  }
 
-  .play-button-outer:hover .play-button {
-    opacity: 1;
-  }
+
+  
+ 

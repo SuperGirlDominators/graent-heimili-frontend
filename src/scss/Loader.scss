@@ -1,0 +1,168 @@
+@import "_mediaqueries.scss";
+
+#loader {
+  height: 100vh;
+  overflow: hidden;
+
+  header {
+     display:none;
+  }
+
+  .luminance-mask {
+    display:none;
+  }
+
+  .socials {
+    display: none;
+  }
+}
+
+
+@-webkit-keyframes enter {
+    0% {
+      opacity: 0;
+      top: -10px;
+    }
+    5% {
+      opacity: 1;
+      top: 0px;
+    }
+    50.9% {
+      opacity: 1;
+      top: 0px;
+    }
+    55.9% {
+      opacity: 0;
+      top: 10px;
+    }
+  }
+  @keyframes enter {
+    0% {
+      opacity: 0;
+      top: -10px;
+    }
+    5% {
+      opacity: 1;
+      top: 0px;
+    }
+    50.9% {
+      opacity: 1;
+      top: 0px;
+    }
+    55.9% {
+      opacity: 0;
+      top: 10px;
+    }
+  }
+  @-moz-keyframes enter {
+    0% {
+      opacity: 0;
+      top: -10px;
+    }
+    5% {
+      opacity: 1;
+      top: 0px;
+    }
+    50.9% {
+      opacity: 1;
+      top: 0px;
+    }
+    55.9% {
+      opacity: 0;
+      top: 10px;
+    }
+  }
+  body {
+    background: #249084;
+  }
+  
+  * {
+    margin: 0;
+  }
+  
+  .loading_content {
+    text-align: center;
+
+    .loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -27.5px;
+      margin-top: -27.5px;
+    }
+
+    #loading_checklist {
+      margin: 0;
+      position: absolute;
+      top: 60%;
+      left: 52%;
+      transform: translate(-50%, -50%);
+      color:#fff;
+
+      @media screen and (max-width: $breakpoint-phone) {
+        width:100%;
+        margin-top:10px;
+      }
+    }
+    
+
+    
+  }
+ 
+  
+  .square {
+    background: white;
+      width: 105px;
+      height: 15px;
+      /* float: left; */
+      top: -10px;
+      margin-right: 5px;
+      margin-top: 5px;
+      position: relative;
+      opacity: 0;
+      -webkit-animation: enter 6s infinite;
+      animation: enter 6s infinite;
+  }
+  
+  .enter {
+    top: 0px;
+    opacity: 1;
+  }
+  
+  .square:nth-child(1) {
+    -webkit-animation-delay: 0.9s;
+    -moz-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+    background: #00C785;
+  }
+  
+  .square:nth-child(2) {
+    -webkit-animation-delay: 1.8s;
+    -moz-animation-delay: 1.8s;
+    animation-delay: 1.8s;
+  }
+  
+  .square:nth-child(3) {
+    -webkit-animation-delay: 2.1s;
+    -moz-animation-delay: 2.1s;
+    animation-delay: 2.1s;
+  
+  }
+  
+  .square:nth-child(4) {
+    -webkit-animation-delay: 2.4s;
+    -moz-animation-delay: 2.4s;
+    animation-delay: 2.4s;
+  }
+  
+  
+  
+  .clear {
+    clear: both;
+  }
+  
+  .last {
+    margin-right: 0;
+  }
+  
+  

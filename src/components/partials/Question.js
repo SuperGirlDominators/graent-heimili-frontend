@@ -8,13 +8,19 @@ class Question extends Component {
     currentQuestion = currentQuestion + 1;
     return (
       <div className="col-md-4">
-          <p>
-              SPURNING {currentQuestion}/{totalQuestions}
+          <p className="question_step">
+              Spurning {currentQuestion} af {totalQuestions}
           </p>
-          <h1>
+          <div className="quiz_progress">
+                    <div className={"hl questionone " + (currentQuestion >= 1 ? 'complete ' : 'not_complete')}></div>
+                    <div className={"hl questiontwo " + (currentQuestion >= 2 ? 'complete' : 'not_complete')}></div>
+                    <div className={"hl questionthree " + (currentQuestion >= 3 ? 'complete' : 'not_complete')}></div>
+                    <div className={"hl questionfour " + (currentQuestion >= 4 ? 'complete' : 'not_complete')}></div>
+                </div>
+          <h1 className="question_name">
               {question && question.question}{/*&&=  if statement equivalent*/}
           </h1>
-          <div className="educaationalInfo">
+          <div className="quiz_tip">
               <h2>
                    Vissir þú...
               </h2>

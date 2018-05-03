@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Panel } from 'react-bootstrap';
 
 export default class CompaniesPortrait extends Component {
 
@@ -18,7 +17,7 @@ export default class CompaniesPortrait extends Component {
     }
 
     render() {
-        const { image, name, fullName, text, link } = this.props;
+        const { image, name, fullName, text} = this.props;
         const dropDownClass = this.state.dropDownOpen ? "dropdown active" : "dropdown";
         const dropArrowClass = this.state.dropDownOpen ? "fa fa-caret-down" : "fa fa-caret-up";
 

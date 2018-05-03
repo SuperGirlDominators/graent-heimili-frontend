@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Panel } from 'react-bootstrap';
 import CompaniesPortrait from './CompaniesPortrait';
 import sorpa from '../assets/images/sorpa_logo.jpg';
 import umhverfisstofnun from '../assets/images/umhverfisstofnun.jpg';
 import endurvinnslan from '../assets/images/endurvinnslan.jpg';
 import reykjavik from '../assets/images/reykjavik.jpg';
-import whiteMask from '../assets/images/white_mask.png';
 import '../css/AboutUs.css';
 
 export default class Companies extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../css/Header.css';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logoGreen from '../../assets/images/Logo_graent.png';
 import logoWhite from '../../assets/images/LOGO_2.png';
 import firebase from 'firebase';

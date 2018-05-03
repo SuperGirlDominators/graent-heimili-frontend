@@ -18,156 +18,269 @@
   font-family: MuktaMalar-Regular;
   src: url("../assets/fonts/MuktaMalar-Regular.ttf"); }
 
-.home {
-  width: 100%; }
-
-.banner_overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  z-index: 20; }
-  .banner_overlay:target {
-    visibility: visible;
-    opacity: 1; }
-
-.banner_popup {
-  margin: 120px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 70%;
-  height: 75vh;
-  position: relative;
-  transition: all 5s ease-in-out; }
-  .banner_popup h3 {
-    font-family: TitilliumWeb-SemiBold;
-    font-size: 2.1em;
-    color: #249084;
-    text-align: center;
-    margin-top: 50px; }
-  .banner_popup h1 {
-    font-family: TitilliumWeb-Bold;
-    font-size: 3.4em;
-    color: #249084;
-    text-align: center;
-    line-height: inherit; }
-  .banner_popup .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333; }
-    .banner_popup .close:hover {
-      color: #06D85F; }
-  .banner_popup #wrapper {
-    width: 80%;
-    max-height: 292px;
-    height: 50%;
-    margin: 0 auto;
-    transform: rotate(180deg);
-    display: flex;
-    justify-content: center; }
-    .banner_popup #wrapper .finished:after {
-      display: table;
-      content: '';
-      background-image: url("../assets/images/success_chr.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      height: 100%;
-      width: 100%;
-      background-position: 59% 70%;
-      position: relative;
-      top: 100%;
-      max-height: 100px;
-      -webkit-transform: rotate(180deg);
-      -moz-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-      -o-transform: rotate(180deg);
-      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
-    .banner_popup #wrapper .complete_step_one {
-      background-color: #249084; }
-    .banner_popup #wrapper .complete_step_two {
-      background-color: #347F90; }
-    .banner_popup #wrapper .complete_step_three {
-      background-color: #C83D6B; }
-    .banner_popup #wrapper .complete_step_four {
-      background-color: #D18326; }
-    .banner_popup #wrapper .complete_step_five {
-      background-color: #694694; }
-  .banner_popup .bar {
-    float: left;
-    width: 16%;
-    height: 100%;
-    margin: 0.13%;
+#achievement {
+  overflow: hidden; }
+  #achievement #banner_popup .col-sm-12, #achievement #banner_popup .col-md-12, #achievement #banner_popup .col-lg-12 {
+    float: none; }
+  #achievement .banner_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    z-index: 20; }
+    #achievement .banner_overlay:target {
+      visibility: visible;
+      opacity: 1; }
+  #achievement .banner_popup {
+    margin: 120px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 70%;
+    height: 75vh;
     position: relative;
-    background-color: #d5d5d5; }
-    .banner_popup .bar .bar_number {
-      display: block;
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 42%;
-      margin-right: -50%;
-      color: #FFFFFF;
+    transition: all 5s ease-in-out; }
+    #achievement .banner_popup h3 {
+      font-family: TitilliumWeb-SemiBold;
+      font-size: 2.1em;
+      color: #249084;
+      text-align: center;
+      margin-top: 50px; }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup h3 {
+          font-size: 1.1em;
+          margin-top: 5%; } }
+      @media screen and (max-width: 768px) {
+        #achievement .banner_popup h3 {
+          margin-top: 8%; } }
+      @media screen and (max-width: 500px) {
+        #achievement .banner_popup h3 {
+          margin-top: 15%; } }
+    #achievement .banner_popup h1 {
       font-family: TitilliumWeb-Bold;
-      font-size: 2em;
-      -webkit-transform: rotate(180deg);
-      -moz-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-      -o-transform: rotate(180deg);
-      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
-  .banner_popup .stepone {
-    height: 15%; }
-    .banner_popup .stepone .one {
-      top: 0%; }
-  .banner_popup .steptwo {
-    height: 30%; }
-    .banner_popup .steptwo .two {
-      top: 22%; }
-  .banner_popup .stepthree {
-    height: 45%; }
-    .banner_popup .stepthree .three {
-      top: 33%; }
-  .banner_popup .stepfour {
-    height: 60%; }
-    .banner_popup .stepfour .four {
-      top: 43%; }
-  .banner_popup .stepfive {
-    height: 75%; }
-    .banner_popup .stepfive .five {
-      top: 52%; }
-  .banner_popup .hl {
-    border-bottom: 0.98px solid #979797;
-    z-index: 1000000;
-    position: absolute;
-    width: 100%; }
-  .banner_popup .btn_selection {
-    margin: 0 auto;
-    width: 80%;
-    margin-top: 5%; }
-    .banner_popup .btn_selection button {
-      font-family: TitilliumWeb-Regular; }
-    .banner_popup .btn_selection .svg-inline--fa {
-      margin-right: 1em; }
-    .banner_popup .btn_selection .share {
-      margin-right: 2%; }
-    .banner_popup .btn_selection .btn-lg {
-      width: 180px;
-      background-color: #249084;
-      color: #FFFFFF;
-      border-color: #249084;
-      border-radius: 0%;
-      outline: none; }
-    .banner_popup .btn_selection .next_step {
+      font-size: 3.4em;
+      color: #249084;
+      text-align: center;
+      line-height: inherit; }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup h1 {
+          font-size: 1.5em;
+          margin-top: 0; } }
+    #achievement .banner_popup .close {
       position: absolute;
-      right: 11.7%; }
-  @media screen and (max-width: 768px) {
-    .banner_popup {
-      width: 70%; } }
+      top: 20px;
+      right: 30px;
+      transition: all 200ms;
+      font-size: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333; }
+      #achievement .banner_popup .close:hover {
+        color: #06D85F; }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup .close {
+          top: 2%; } }
+    #achievement .banner_popup #wrapper {
+      width: 80%;
+      max-height: 292px;
+      height: 50%;
+      margin: 0 auto;
+      transform: rotate(180deg);
+      display: flex;
+      justify-content: center; }
+      #achievement .banner_popup #wrapper .finished:after, #achievement .banner_popup #wrapper .champ:after {
+        display: table;
+        content: '';
+        background-image: url("../assets/images/success_chr.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+        background-position: 59% 70%;
+        position: relative;
+        top: 100%;
+        max-height: 100px;
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup #wrapper .champ:after {
+          height: 300%;
+          position: absolute;
+          background-position: 50% 70%; } }
+      #achievement .banner_popup #wrapper .complete_step_one {
+        background-color: #249084; }
+      #achievement .banner_popup #wrapper .complete_step_two {
+        background-color: #347F90; }
+      #achievement .banner_popup #wrapper .complete_step_three {
+        background-color: #C83D6B; }
+      #achievement .banner_popup #wrapper .complete_step_four {
+        background-color: #D18326; }
+      #achievement .banner_popup #wrapper .complete_step_five {
+        background-color: #694694; }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup #wrapper {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-top: 12%; } }
+      @media screen and (max-width: 768px) {
+        #achievement .banner_popup #wrapper {
+          margin-top: 13%; } }
+      @media screen and (max-width: 500px) {
+        #achievement .banner_popup #wrapper {
+          margin-top: 28%; } }
+    #achievement .banner_popup .bar {
+      float: left;
+      width: 16%;
+      height: 100%;
+      margin: 0.13%;
+      position: relative;
+      background-color: #d5d5d5; }
+      #achievement .banner_popup .bar .bar_number {
+        display: block;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 42%;
+        margin-right: -50%;
+        color: #FFFFFF;
+        font-family: TitilliumWeb-Bold;
+        font-size: 2em;
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
+        @media screen and (max-width: 992px) {
+          #achievement .banner_popup .bar .bar_number {
+            font-family: TitilliumWeb-Bold;
+            font-size: 1.2em;
+            left: unset; } }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup .bar {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          margin: 0.5%; } }
+    #achievement .banner_popup .stepone {
+      height: 15%; }
+      #achievement .banner_popup .stepone span:after {
+        display: table;
+        content: '1'; }
+        @media screen and (max-width: 992px) {
+          #achievement .banner_popup .stepone span:after {
+            content: 'Skref 1'; } }
+      #achievement .banner_popup .stepone .one {
+        top: 0%; }
+        @media screen and (max-width: 992px) {
+          #achievement .banner_popup .stepone .one {
+            top: 16%; } }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup .stepone {
+          height: 20%; } }
+    #achievement .banner_popup .steptwo {
+      height: 30%; }
+      #achievement .banner_popup .steptwo span:after {
+        display: table;
+        content: '2'; }
+        @media screen and (max-width: 992px) {
+          #achievement .banner_popup .steptwo span:after {
+            content: 'Skref 2'; } }
+      #achievement .banner_popup .steptwo .two {
+        top: 22%; }
+    #achievement .banner_popup .stepthree {
+      height: 45%; }
+      #achievement .banner_popup .stepthree span:after {
+        display: table;
+        content: '3'; }
+        @media screen and (max-width: 992px) {
+          #achievement .banner_popup .stepthree span:after {
+            content: 'Skref 3'; } }
+      #achievement .banner_popup .stepthree .three {
+        top: 33%; }
+    #achievement .banner_popup .stepfour {
+      height: 60%; }
+      #achievement .banner_popup .stepfour span:after {
+        display: table;
+        content: '4'; }
+        @media screen and (max-width: 992px) {
+          #achievement .banner_popup .stepfour span:after {
+            content: 'Skref 4'; } }
+      #achievement .banner_popup .stepfour .four {
+        top: 43%; }
+    #achievement .banner_popup .stepfive {
+      height: 75%; }
+      #achievement .banner_popup .stepfive span:after {
+        display: table;
+        content: '5'; }
+        @media screen and (max-width: 992px) {
+          #achievement .banner_popup .stepfive span:after {
+            content: 'Skref 5'; } }
+      #achievement .banner_popup .stepfive .five {
+        top: 52%; }
+    #achievement .banner_popup .hl {
+      border-bottom: 0.98px solid #979797;
+      z-index: 1000000;
+      position: absolute;
+      width: 100%; }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup .hl {
+          display: none; } }
+    #achievement .banner_popup .btn_selection {
+      margin: 0 auto;
+      width: 80%;
+      margin-top: 5%; }
+      #achievement .banner_popup .btn_selection button {
+        font-family: TitilliumWeb-Regular; }
+      #achievement .banner_popup .btn_selection .svg-inline--fa {
+        margin-right: 1em; }
+      #achievement .banner_popup .btn_selection .share {
+        margin-right: 2%; }
+        @media screen and (max-width: 992px) {
+          #achievement .banner_popup .btn_selection .share {
+            width: 100%;
+            margin-top: -3%; } }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup .btn_selection .challenge {
+          width: 100%;
+          margin-top: -3%; } }
+      #achievement .banner_popup .btn_selection .btn-lg {
+        width: 180px;
+        background-color: #249084;
+        color: #FFFFFF;
+        border-color: #249084;
+        border-radius: 0%;
+        outline: none; }
+        @media screen and (max-width: 992px) {
+          #achievement .banner_popup .btn_selection .btn-lg {
+            font-size: 12px;
+            padding: 10px; } }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup .btn_selection .mb_selection {
+          display: flex;
+          align-items: center;
+          justify-content: center; } }
+      #achievement .banner_popup .btn_selection .next_step {
+        position: absolute;
+        right: 11.7%;
+        bottom: 5.5%; }
+        @media screen and (max-width: 992px) {
+          #achievement .banner_popup .btn_selection .next_step {
+            width: 100%;
+            margin-bottom: 5%;
+            margin-top: 5%;
+            position: relative;
+            right: auto; } }
+      @media screen and (max-width: 992px) {
+        #achievement .banner_popup .btn_selection {
+          width: 100%; } }
+    @media screen and (max-width: 768px) {
+      #achievement .banner_popup {
+        width: 80%; } }

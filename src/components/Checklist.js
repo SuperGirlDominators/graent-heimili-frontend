@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import '../css/Checklist.css';
 import whiteMask from '../assets/images/white_mask.png';
 import ChecklistItem from './partials/ChecklistItem';
@@ -24,7 +23,7 @@ class Checklist extends Component {
   componentDidUpdate(){
     $(document).ready(function(){
       $('.view_more').click(function(){
-        $('.label_wrap').css("transform","translate(0,-380px)");
+        $('.label_wrap').css("transform","translate(0,-480px)");
         $('.view_up').css("display","block");
         $(this).hide();
       });
@@ -44,7 +43,27 @@ class Checklist extends Component {
 
   getNextStep() {
     const currStep = { currentStep: this.props.current_step + 1 };
-    if(currStep.currentStep === this.props.checklist_steps.length) {
+    //change background color
+    if(currStep.currentStep === 1) {
+      $('#checklist').addClass('bg_1'); 
+    }
+    else if(currStep.currentStep === 2) {
+      $('#checklist').removeClass('bg_1'); 
+      $('#checklist').addClass('bg_2'); 
+      $('#checkbox').addClass('bg_teal'); 
+    }
+    else if(currStep.currentStep === 3) {
+      $('#checklist').removeClass('bg_2'); 
+      $('#checklist').addClass('bg_3'); 
+    }
+
+    else if(currStep.currentStep === 4) {
+      $('#checklist').removeClass('bg_3'); 
+      $('#checklist').addClass('bg_4'); 
+    }
+
+
+    if(currStep.currentStep === this.props.checklist_steps.length + 1 ) {
       this.handleSubmit();
     } 
     else {
@@ -56,62 +75,50 @@ class Checklist extends Component {
 
   handleSubmit() {
     const checklistValue = this.props.userchecklist;
-  }
-
-  onClick(e) {
-    let  clickedItems= [];
-      // e.target.value;
-      let clickedItem = e.target.value;
-      // console.log(e.target.value);
-      clickedItems.push(clickedItem);
-      console.log(clickedItems);
+    console.log(checklistValue)
   }
 
   render() {
     const { checklist_steps } = this.props;
     let { userchecklist } = this.props;
 
-    userchecklist = userchecklist.filter(checklist => checklist.checklistStep === this.props.current_step+1)
+    userchecklist = userchecklist.filter(checklist => checklist.checklistStep === this.props.current_step + 1)
     .filter(checklist => !!checklist.checklistItem); 
 
     const isAChecklistSelected = userchecklist.every(checklist => checklist.value);
     return (
-        <div>
-            <div className="container">
-                <div className="row">
-                    <div className="white_curved_mask">
-                        <img className="target white_curved_mask" src={whiteMask} alt="Masked banner"/>
-                    </div>
+      <div>
+        <div className="container">
+            <div className="row">
+              <div className="luminance-mask">
+                <img className="target luminance-target" src={whiteMask} alt="banner mask"></img>
+              </div>
+                <div className="col-12 col-sm-12 col-md-12 checklist_content">
+                  <ChecklistStep
+                    currentStep={this.props.current_step}
+                    totalSteps={checklist_steps.length}
+                    checklist_step = {checklist_steps[this.props.current_step]}
+                  />
+                  <button className="view_up"><i className="up"></i></button>
+                  <div className="col-12 col-sm-12 col-md-7 checklistItems"> 
+                    {
+                      userchecklist.map((checklist, i) =>
+                        <ChecklistItem key={i} checklist={checklist} onToggle={this.props.actions.toggleUserChecklist}/>
+                      )
+                    }       
+                  </div>
+                  <button className="view_more"><i className="down"></i></button>
                 </div>
             </div>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12 checklist_content">
-                      <ChecklistStep
-                        currentStep={this.props.current_step}
-                        totalSteps={checklist_steps.length}
-                        checklist_step = {checklist_steps[this.props.current_step]}
-                      />
-                      <button className="view_up"><i className="up"></i></button>
-                      <ul className="col-md-8 checklistItems"> 
-                        {
-                          userchecklist.map((checklist, i) =>
-                            <ChecklistItem key={i} checklist={checklist} onToggle={this.props.actions.toggleUserChecklist}/>
-                          )
-                        }       
-                      </ul>
-                      <button className="view_more"><i className="down"></i></button>
-                    </div>
-                </div>
-            </div>
-            { isAChecklistSelected &&
-              <a className="play-button-outer" href={(this.props.current_step === this.props.userchecklist.length-1 ) ? "#":"#"} style={{ display: "block" }} id="next_question" onClick={this.getNextStep}>
-                <div className="next_checklist">
-                  <p className="button_text">NÆSTA SKREF</p>
-                </div>
-              </a>
-            }
         </div>
+        { isAChecklistSelected &&
+          <a className="play-button-outer" href={(this.props.current_step === this.props.userchecklist.length-1 ) ? "# ":"# "} style={{ display: "block" }} id="next_question" onClick={this.getNextStep}>
+            <div className="next_checklist">
+              <p className="button_text">NÆSTA SKREF</p>
+            </div>
+          </a>
+        }
+      </div>
     );
   }
 }

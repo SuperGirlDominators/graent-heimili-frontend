@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import checklistImage from '../../assets/images/recycle.jpg';
 
 
 class ChecklistItem extends Component {
   constructor(props) {
     super(props);
+
     this.onItemClick = this.onItemClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -40,13 +40,12 @@ class ChecklistItem extends Component {
     const { checklist } = this.props;
     return (
       <div className='label_wrap'>
-        <label className='my-checklist'>
-            <input type='checkbox' onClick={this.onItemClick} type='checkbox' checked={checklist.value} />
+        <label className='my-checklist' id="checkbox">
+            <input type='checkbox'  onClick={this.onItemClick} type='checkbox' checked={checklist.value } />
             <span>{checklist.checklistItem}</span>
             <button onClick={this.handleClick}  className="checklist_tip c_tip q1" >
               <i className="fas fa-question"></i>
-
-              <div class="tooltip">Smelltu á mig til að fá nánari útskýringar</div>
+              <div className="tooltip">Smelltu á mig til að fá nánari útskýringar</div>
             </button>
         </label>
       </div>

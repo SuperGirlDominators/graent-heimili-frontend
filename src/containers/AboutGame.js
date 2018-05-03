@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/AboutGame.css';
+import Login from '../components/partials/Login';
 import homeBanner from '../assets/images/home-banner.jpeg';
 import StepOneImage from '../assets/images/stepOne.png';
 import StepTwoImage from '../assets/images/stepTwo.png';
@@ -87,6 +88,7 @@ class AboutGame extends Component {
                   <div>
                        <a className="next_button btn-lg" href="#login_popup">Byrjaðu núna</a>
                   </div>
+                  <Login destination="/questions" />
               </div>
           </div>
         </div>

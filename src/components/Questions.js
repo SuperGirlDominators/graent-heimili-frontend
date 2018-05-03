@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import '../css/Question.css';
 import '../css/Home.css';
 import Login from './partials/Login';
-import whiteMask from '../assets/images/white_mask.png';
 import Question from './partials/Question';
-import Checklist from './Checklist';
 import Choice from './partials/Choice';
+import $ from 'jquery';
 import * as actions from '../actions/actions';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
@@ -32,7 +30,21 @@ class Questions extends Component {
   }
 
   componentWillMount(){
-    document.body.id= "homepage";
+    document.body.id= "quiz_page";
+    $(document).ready(function(){
+      $('.view_more').click(function(){
+        $('.label_wrap').css("transform","translate(0,-480px)");
+        $('.view_up').css("display","block");
+        $(this).hide();
+        console.log('i updated')
+      });
+
+      $('.view_up').click(function(){
+        $('.label_wrap').css("transform","translate(0,0)");
+        $('.view_more').css("display","block");
+        $(this).hide();
+      });
+    });
   }
 
   getNextQuestion() {
@@ -40,7 +52,7 @@ class Questions extends Component {
 
     if(currQuest.currentQuestion === this.props.questions.length) {
       this.handleSubmit();
-    }
+    } 
     else {
       this.setState(currQuest);
     }
@@ -49,7 +61,7 @@ class Questions extends Component {
   handleSubmit() {
     if(firebase.auth().currentUser) {
       // console.log(firebase.auth().currentUser)
-      this.setState({login:true});
+      this.setState({login:true}); 
     }
     this.props.actions.postChoices(this.props.choices);
     const choicesValue = this.props.choices;
@@ -68,7 +80,7 @@ class Questions extends Component {
     data.unSelectedChoices = unSelectedChoices;
     // console.log(this.props.profileData.user.uid)
     data.userID = this.props.profileData.user ? this.props.profileData.user.uid : null;
-    const url = "https://api.heroku.com/apps/graent-heimili-backend/userchoices";
+    const url = "http://localhost:8080/api/userchoices";
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append('Accept','application/json');
@@ -81,7 +93,17 @@ class Questions extends Component {
       response.json()
     )
     .then(response => {
-      this.props.profileData.user ? this.props.history.push('/checklist') : false;
+      // this.props.history.push('/loader')
+    })
+    .then(response => {
+      if (this.props.profileData.user) {
+        this.props.history.push('/loader')
+    } else {
+        return false;
+    }
+      // this.props.profileData.user ? this.props.history.push('/loader') : false;
+
+      // this.props.profileData.user ? this.props.history.push('/checklist') : false;
     })
     .catch( err => {
       console.log("The error is ", err);
@@ -97,43 +119,76 @@ class Questions extends Component {
     clickedItems.push(clickedItem);
   }
 
+  
+
   render() {
     const { questions } = this.props;
+    console.log(questions)
     let { choices } = this.props;
     choices = choices.filter(choice => choice.questionID === this.state.currentQuestion+1);
-    // console.log(choices.some(choice => choice.value));
     const isAChoiceSelected = choices.some(choice => choice.value);
+    console.log(this.state.currentQuestion);
+
+   const bannerImages = [
+      {
+        type: "Image_one",
+        image: require("../assets/images/bottles.jpg")
+      },
+      {
+        type: "Image_two",
+        image: require("../assets/images/cleaning.jpg")
+      },
+      {
+        type: "Image_three",
+        image: require("../assets/images/hygiene.jpg")
+      },
+      {
+        type: "Image_four",
+        image: require("../assets/images/environment.jpg")
+      },
+    ];
+
     return (
       <div>
         <div className="row start-button">
-          <Login destination="/checklist"/>
+          <Login destination="/loader"/>
         </div>
         <div className="container">
           <div className="row">
-            <div className="white_curved_mask">
-              <img className="target white_curved_mask" src={whiteMask} alt="Masked banner"/>
-            </div>
+          <div className="luminance-mask">
+               <img className="target luminance-target" src={bannerImages[this.state.currentQuestion].image} alt="banner mask"></img>
+             </div>
           </div>
         </div>
-        <div className="container centerVerticalQuestions">
+        <div className="container choice_content">
           <div className="row">
             <Question
               currentQuestion={this.state.currentQuestion}
               totalQuestions={questions.length}
               question={questions[this.state.currentQuestion]}
             />
-
-            <div className="col-md-8 positionToRight">
+            <button className="view_up"><i className="up"></i></button>
+            <div className="col-md-8 choice_selection">
               {
                 choices.map((choice, i) =>
                   <Choice key={i} choice={choice} onToggle={this.props.actions.toggleChoice}/>
                 )
               }
             </div>
+            <button className="view_more"><i className="down"></i></button>
+
+              <div className="mb_quiz_tip">
+            <Question
+              question={questions[this.state.currentQuestion]}
+            />
           </div>
+          </div>
+
+        
+
         </div>
           { isAChoiceSelected &&
-            <a className="play-button-outer" href={(this.state.currentQuestion === this.props.questions.length-1 ) && (!this.state.login) ? "#login_popup": "#" } style={{ display: "block" }} id="next_question" onClick={this.getNextQuestion}>
+            <a className="play-button-outer" href={(this.state.currentQuestion === this.props.questions.length-1 ) && (!this.state.login) ? "#login_popup": "# " } style={{ display: "block" }} id="next_question" onClick={this.getNextQuestion}>
               <div className="play-button">
                 <p className="button_text">áfram</p>
               </div>

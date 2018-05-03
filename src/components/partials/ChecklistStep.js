@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class ChecklistStep extends Component {
-    constructor(props) {
-        super(props);
-        // this.dataURL = this.makeDataURL.bind(this);
-    }
 
     arrayBufferToBase64(ab){
         var dView = new Uint8Array(ab);   //Get a byte view        
@@ -22,10 +18,10 @@ class ChecklistStep extends Component {
 
         return "data:image/png;base64, " + this.arrayBufferToBase64( checklist_step.checklistImage.data );
         
-        return;
-        var arrayBufferView = new Uint8Array( checklist_step.checklistImage ).reduce((data, byte) => data + String.fromCharCode(byte), '');
-        var imageUrl = btoa(String.fromCharCode(...arrayBufferView));
-        return imageUrl;
+        // // return;
+        // var arrayBufferView = new Uint8Array( checklist_step.checklistImage ).reduce((data, byte) => data + String.fromCharCode(byte), '');
+        // var imageUrl = btoa(String.fromCharCode(...arrayBufferView));
+        // return imageUrl;
     }
 
     componentWillReceiveProps(props) {
@@ -36,12 +32,19 @@ class ChecklistStep extends Component {
         const { totalSteps, checklist_step } = this.props;
         let { currentStep } = this.props;
         currentStep = currentStep + 1;
-
+     
         return (
-            <div className="col-md-4">
+            <div className="col-4 col-sm-12 col-md-5">
                 <p className="checklist_step">
                     Skref {currentStep} af {totalSteps}
                 </p>
+                <div className="checklist_progress">
+                    <div className={"hl stepone " + (currentStep >= 1 ? 'complete ' : 'not_complete')}></div>
+                    <div className={"hl steptwo " + (currentStep >= 2 ? 'complete' : 'not_complete')}></div>
+                    <div className={"hl stepthree " + (currentStep >= 3 ? 'complete' : 'not_complete')}></div>
+                    <div className={"hl stepfour " + (currentStep >= 4 ? 'complete' : 'not_complete')}></div>
+                    <div className={"hl stepfive " + (currentStep >= 5 ? 'complete' : 'not_complete')}></div>
+                </div>
                 <h1 className="checklist_name">
                     { checklist_step && checklist_step.checklistName }
                 </h1>
@@ -50,7 +53,7 @@ class ChecklistStep extends Component {
                 </p>
                 <div className="photoChecklist">
                     <div className="side">
-                        <img src={this.dataURL} alt="photo of a home"/>
+                        <img src={this.dataURL} alt="home"/>
                     </div> 
                     <div className="side back" id="backside">Hægt er að kaupa ýmiskonar stærðir af tunnum í <strong>IKEA </strong>og í <strong> Rúmfatalagernum</strong>.
                         IKEA er einnig með góðar lausnir fyrir flokkun í lítið rými eins og undir vaska eða í lítilli geymslu.

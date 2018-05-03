@@ -1,5 +1,59 @@
+@font-face {
+  font-family: TitilliumWeb-Bold;
+  src: url("../assets/fonts/TitilliumWeb-Bold.ttf"); }
+
+@font-face {
+  font-family: TitilliumWeb-SemiBold;
+  src: url("../assets/fonts/TitilliumWeb-SemiBold.ttf"); }
+
+@font-face {
+  font-family: TitilliumWeb-Regular;
+  src: url("../assets/fonts/TitilliumWeb-Regular.ttf"); }
+
+@font-face {
+  font-family: TitilliumWeb-Light;
+  src: url("../assets/fonts/TitilliumWeb-Light.ttf"); }
+
+@font-face {
+  font-family: MuktaMalar-Regular;
+  src: url("../assets/fonts/MuktaMalar-Regular.ttf"); }
+
 body {
   overflow: scroll; }
+
+#abouteducation {
+  background: linear-gradient(90deg, #249084, #3EB490, #4CCC98, #54D99C, #68FFA8);
+  margin: 0 auto;
+  padding: 0;
+  height: 100vh; }
+
+.target {
+  display: block;
+  height: auto;
+  margin: 0 auto; }
+
+.luminance-target-education {
+  -webkit-mask-image: url("../assets/images/banner-mask.png");
+  mask-image: url("../assets/images/banner-mask.png");
+  mask-mode: luminance;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1100px;
+  max-width: 100vw;
+  height: 100vh; }
+  @media screen and (max-width: 768px) {
+    .luminance-target-education {
+      -webkit-mask-image: none;
+      mask-image: none;
+      opacity: 0.8; } }
 
 .education {
   font-family: 'Titillium Web', sans-serif;
@@ -8,12 +62,39 @@ body {
   color: white;
   margin-top: 258px;
   margin-bottom: 20px; }
+  @media screen and (max-width: 1024px) {
+    .education {
+      font-size: 3.5em; } }
+  @media screen and (max-width: 500px) {
+    .education {
+      font-size: 3em;
+      margin-left: 30px;
+      margin-right: 30px; } }
 
 .educationSubtext {
   font-family: 'Titillium Web', sans-serif;
   font-size: 20px;
   color: white;
   padding-bottom: 50px; }
+  @media screen and (max-width: 500px) {
+    .educationSubtext {
+      font-size: 1.2em;
+      margin-left: 30px;
+      margin-right: 20px; } }
+
+.education2 {
+  opacity: 0;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  color: white;
+  margin-top: -300px;
+  margin-bottom: 20px; }
+  @media screen and (max-width: 500px) {
+    .education2 {
+      font-size: 2em;
+      margin-left: 25px;
+      margin-right: 20px; } }
 
 .scroll-downs {
   position: absolute;
@@ -23,19 +104,22 @@ body {
   left: 0;
   margin: auto;
   width: 34px;
-  height: 55px; }
+  height: 53px; }
+  @media screen and (max-width: 1024px) {
+    .scroll-downs {
+      display: none; } }
 
 .mousey {
-  width: 3px;
+  width: 1px;
   padding: 10px 15px;
-  height: 35px;
+  height: 25px;
   border: 2px solid #fff;
   border-radius: 25px;
   opacity: 0.75;
   box-sizing: content-box; }
 
 .scroller {
-  width: 3px;
+  width: 2px;
   height: 10px;
   border-radius: 25%;
   background-color: #fff;
@@ -55,7 +139,7 @@ body {
     opacity: 0; } }
 
 .dropbtn {
-  width: 60%;
+  width: 77%;
   background-color: white;
   color: #249084;
   padding: 16px;
@@ -65,6 +149,9 @@ body {
   border: none;
   text-align: left;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); }
+  @media screen and (max-width: 1024px) {
+    .dropbtn {
+      width: 100%; } }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown2 {
@@ -79,10 +166,13 @@ body {
   display: none;
   position: absolute;
   background-color: #fff;
-  width: 60%;
+  width: 77%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   padding: 12px 0px; }
+  @media screen and (max-width: 1024px) {
+    .dropdown2-content {
+      width: 100%; } }
 
 /* Links inside the dropdown */
 .dropdown2-content a {
@@ -105,3 +195,33 @@ body {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown2:hover .dropbtn {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); }
+
+.educPageStyle {
+  margin-top: 100px; }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+  padding: 12px 16px;
+  z-index: 1;
+  font-family: 'Titillium Web', sans-serif;
+  text-align: left; }
+
+.dropdown.active .dropdown-content {
+  display: block; }
+
+.linkStyle a {
+  color: #249084;
+  font-weight: 600; }
+
+.linkStyle:hover {
+  text-decoration: underline; }

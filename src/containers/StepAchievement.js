@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/StepAchievement.css';
 import BannerImage from '.././assets/images/confetti_image.png';
-import SuccessChar from '.././assets/images/success_chr.png';
+import $ from 'jquery';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
@@ -13,9 +13,31 @@ class StepAchievement extends Component {
     super(props);
   
     this.getNextStep = this.getNextStep.bind(this);
-   
   }
 
+  componentWillMount(){
+    document.body.id= "achievement";
+  }
+
+  componentDidMount() {
+    $(document).ready(function($) {
+      var alterClass = function() {
+        var ww = document.body.clientWidth;
+        if (ww < 992) {
+          $('.bar').removeClass('finished');
+          $(".step_champion").addClass("champ");
+        } else if (ww >= 992) {
+          $('.bar').addClass('');
+        };
+      };
+      $(window).resize(function(){
+        alterClass();
+      });
+      //Fire it when the page first loads:
+      alterClass();
+    });
+  }
+ 
   getNextStep() {
     this.props.history.push('/checklist');
   }
@@ -25,7 +47,7 @@ class StepAchievement extends Component {
       backgroundImage: 'url('+BannerImage+')',
       backgroundSize: 'contain'
     };
-    const basicClasses = ['bar stepone ','bar steptwo ','bar stepthree ','bar stepfour ','bar stepfive '];
+    const basicClasses = ['bar stepone step_champion ','bar steptwo ','bar stepthree ','bar stepfour ','bar stepfive '];
     const classes = basicClasses.map((className, i) => {
       if(i===this.props.current_step-1){
         className=className + " finished";
@@ -33,49 +55,54 @@ class StepAchievement extends Component {
       if(i<this.props.current_step){
         className = className + " complete_step_" + ["one","two","three","four","five"][i];
       }
-      console.log(i, className, this.props.current_step);
       return className;
     });
-    console.log(classes);
+
+    if(this.props.current_step === 5){
+      $('.next_step').hide();
+    }
     return (
       <div id="banner_popup" className="banner_overlay">
-        <div className="banner_popup" style={styles} >
+        <div className="banner_popup col-lg-12 col-md-12 col-sm-12" style={styles} >
           <a className="close" href="/checklist#login_popup">&times;</a>
 
           <h3>Þú kláraðir SKREF {this.props.current_step} af 5 </h3>
 
           <h1>Vá hvað þú ert frábær!</h1>
-          <div id="wrapper">
+          <div id="wrapper" className="col-sm-12">
           
             <div className={classes[4]}>
-              <span class="bar_number five">5</span>
+              <span className="bar_number five"></span>
             </div>
            
            
             <div className={classes[3]}>
-              <span class="bar_number four">4</span>
+              <span className="bar_number four"></span>
             </div>
            
             
             <div className={classes[2]}>
-              <span class="bar_number three">3</span>
+              <span className="bar_number three"></span>
             </div>
            
             
             <div className={classes[1]}>
-              <span class="bar_number two">2</span>
+              <span className="bar_number two"></span>
             </div>
             
             <div className={classes[0]}>
-              <span class="bar_number one">1</span>
+              <span className="bar_number one"></span>
             </div>
     
-            <div class="hl"></div>
+            <div className="hl"></div>
           </div>
-          <div class="btn_selection">
-            <button class="share btn-lg"><i className="fas fa-share-alt"></i>Deila áfram</button>
-            <button class="challenge btn-lg"><i className="fas fa-user-plus"></i>Skora á aðra</button>
-            <button class="next_step btn-lg" onClick={this.getNextStep}>Næsta Skref</button>
+          <div className="btn_selection">
+            <div className="mb_selection">
+              <button className="share btn-lg"><i className="fas fa-share-alt"></i>Deila áfram</button>
+              <button className="challenge btn-lg"><i className="fas fa-user-plus"></i>Skora á aðra</button>
+            </div>
+            
+            <button className="next_step btn-lg" onClick={this.getNextStep}>Næsta Skref</button>
           </div>
         </div>
       </div>

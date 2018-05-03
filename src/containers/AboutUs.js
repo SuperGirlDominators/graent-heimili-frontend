@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Panel } from 'react-bootstrap';
 import AboutPortrait from './AboutPortrait';
 import judy from '../assets/images/judy.jpg';
 import hrefna from '../assets/images/hrefna.jpg';
 import ingunn from '../assets/images/ingunn.jpg';
 import heidrun from '../assets/images/heidrun.jpg';
-import whiteMask from '../assets/images/white_mask.png';
 import '../css/AboutUs.css';
 
 class AboutUs extends Component {

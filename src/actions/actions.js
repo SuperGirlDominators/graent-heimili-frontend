@@ -1,6 +1,8 @@
 import * as actionTypes from "../actionTypes/actionTypes";
 import firebase from 'firebase';
 
+const databaseURL = "http://localhost:8080/api"
+
 function requestCreateProfile() {
   return {
     type: actionTypes.REQUEST_CREATE_PROFILE
@@ -17,12 +19,12 @@ function receiveCreateProfile(profileData) {
 export const createProfile = (profileData)=>{
   return dispatch => {
     dispatch(requestCreateProfile());
-    const url = "https://api.heroku.com/apps/graent-heimili-backend/adduser";
+    const url = `${databaseURL}/adduser`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append('Accept','application/json');
 
-    firebase.auth().currentUser.getToken().then((idToken)=>{
+    firebase.auth().currentUser.getIdToken().then((idToken)=>{
       profileData.realToken = idToken;
       console.log(profileData)
       fetch(url, {
@@ -61,7 +63,7 @@ function receiveQuestions(questions) {
 export const getQuestions = () => {
   return dispatch => {
     dispatch(requestQuestions());
-    const url = "https://api.heroku.com/apps/graent-heimili-backend/questions";
+    const url = `${databaseURL}/questions`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append('Accept','application/json');
@@ -102,7 +104,7 @@ function receiveChoices(choices) {
 export const getChoices = () => {
   return dispatch => {
     dispatch(requestChoices());
-    const url = "https://api.heroku.com/apps/graent-heimili-backend/data";
+    const url = `${databaseURL}/data`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append('Accept','application/json');
@@ -136,23 +138,10 @@ export const toggleChoice = (id) => {
   }
 }
 
-function requestUpsertChoices() {
-  return {
-    type: actionTypes.REQUEST_UPSERT_CHOICES
-  };
-}
-
-function receiveUpsertChoices(choices) {
-  return {
-    type: actionTypes.RECEIVE_UPSERT_CHOICES,
-    choices
-  };
-}
-
 export const postChoices = (choices) => {
   return dispatch => {
     dispatch(requestChoices());
-    const url = "https://api.heroku.com/apps/graent-heimili-backend/data";
+    const url = `${databaseURL}/data`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append('Accept','application/json');
@@ -191,7 +180,7 @@ const receiveChecklist = () =>{
 export const getChecklist = () => {
   return dispatch => {
     dispatch(requestChecklist());
-    const url = "https://api.heroku.com/apps/graent-heimili-backend/data";
+    const url = `${databaseURL}/data`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append('Accept','application/json');
@@ -245,7 +234,7 @@ export const toggleUserChecklist = (id) => {
 export const getUserChecklist = () => {
   return dispatch => {
     dispatch(requestUserChecklist());
-    const url = "https://api.heroku.com/apps/graent-heimili-backend/userchecklist";
+    const url = `${databaseURL}/userchecklist`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append('Accept','application/json');
@@ -286,7 +275,7 @@ function receiveChecklistSteps(checklist_steps) {
 export const getChecklistSteps = () => {
   return dispatch => {
     dispatch(requestChecklistSteps());
-    const url = "https://api.heroku.com/apps/graent-heimili-backend/checkliststeps";
+    const url = `${databaseURL}/checkliststeps`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append('Accept','application/json');
@@ -313,3 +302,14 @@ export const CurrentStep = (current_step)=> {
     current_step
   };
 }
+
+
+
+
+
+
+
+
+
+
+

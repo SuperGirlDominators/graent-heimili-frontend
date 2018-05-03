@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Home from './containers/Home';
 import Header from './containers/partials/Header';
 import Login from './components/partials/Login';
@@ -10,6 +10,13 @@ import AboutGame from './containers/AboutGame';
 import AboutUs from './containers/AboutUs';
 import Companies from './containers/Companies';
 import Education from './containers/EducationPage';
+
+import DropDownNr01 from './components/EducDropDownNr01';
+import DropDownNr02 from './components/EducDropDownNr02';
+import DropDownNr03 from './components/EducDropDownNr03';
+import DropDownNr04 from './components/EducDropDownNr04';
+import DropDownNr05 from './components/EducDropDownNr05';
+
 import Footer from './containers/partials/Footer';
 import './css/App.css';
 
@@ -51,7 +58,12 @@ class App extends Component {
         <Route path="/about-us" component={AboutUs} />
         <Route path="/companies" component={Companies} />
         <Route path="/education" component={Education} />
-        <div className={`socials ${footerClass}`} style={{position: 'fixed', bottom: 20, right: '134px'}}>
+        <Route path="/dropDownNr01" component={DropDownNr01} />
+        <Route path="/dropDownNr02" component={DropDownNr02} />
+        <Route path="/dropDownNr03" component={DropDownNr03} />
+        <Route path="/dropDownNr04" component={DropDownNr04} />
+        <Route path="/dropDownNr05" component={DropDownNr05} />
+        <div className={footerClass} style={{position: 'fixed', bottom: 20, right: '134px'}}>
         <Footer />
         </div>
       </div>
