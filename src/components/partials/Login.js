@@ -56,6 +56,7 @@ class Login extends Component {
   }
 
   handleUserLoginResponse(result) {
+    console.log(result)
     this.props.actions.createProfile(result);
   }
 
@@ -67,11 +68,13 @@ class Login extends Component {
     firebase.auth().signInWithPopup(provider)
       .then((result) => {
         console.log(result);
+        //const id_token = result.user.getAuthResponse().id_token;
         context.handleUserLoginResponse(result);
         this.setState({navigate:true})
       })
       .catch((error) => {
         console.log(error);
+        // alert(JSON.stringify(error));
       })
   }
 
@@ -89,6 +92,7 @@ class Login extends Component {
       })
       .catch((error) => {
         console.log(error);
+        // alert(JSON.stringify(error));
       })
   }
 
