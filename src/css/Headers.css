@@ -7,15 +7,14 @@ header {
     background-color: transparent;
     border-color: transparent; }
     header .navbar-inverse .container-fluid {
-      padding-left: 0; }
-      @media screen and (max-width: 768px) {
-        header .navbar-inverse .container-fluid .navbar-right {
-          margin-right: 0px !important; } }
+      padding: 0; }
+      header .navbar-inverse .container-fluid .navbar-right {
+        margin-right: 0px !important; }
+        @media screen and (max-width: 992px) {
+          header .navbar-inverse .container-fluid .navbar-right {
+            margin-right: 0px !important; } }
   header .navbar {
     margin-top: 4%; }
-    @media screen and (max-width: 768px) {
-      header .navbar {
-        padding-left: 15px; } }
 
 .logo img {
   width: 120px; }
@@ -42,7 +41,7 @@ header {
 .button_container {
   position: relative;
   top: 5%;
-  right: 2%;
+  right: 0;
   height: 27px;
   width: 35px;
   cursor: pointer;
@@ -92,11 +91,15 @@ header {
   visibility: hidden;
   transition: opacity .35s, visibility .35s, width .35s;
   overflow: hidden; }
+  @media screen and (max-width: 800px) {
+    .overlay .overlay-menu {
+      padding-right: 0px; } }
   .overlay.open {
     opacity: 10;
     visibility: visible;
     height: 100%;
-    width: 26%; }
+    width: 26%;
+    padding: 30px; }
     @media screen and (max-width: 500px) {
       .overlay.open {
         width: 100%; } }
@@ -133,18 +136,35 @@ header {
         min-height: 58px;
         position: relative;
         opacity: 0; }
-        .overlay nav ul li a {
+        .overlay nav ul li .underline--style a {
           display: block;
           font-family: TitilliumWeb-Regular;
-          font-size: 1em;
+          font-size: 1.2em;
           color: #249084;
-          text-decoration: none; }
-          .overlay nav ul li a:hover, .overlay nav ul li a:focus, .overlay nav ul li a:active:after {
-            width: 100%;
-            text-decoration: underline;
-            transition-timing-function: ease-out;
-            transition: 0.25s;
-            cursor: pointer; }
+          text-decoration: none;
+          cursor: pointer;
+          background-image: linear-gradient(120deg, #84fab0 0%, #4CCC98 100%);
+          background-repeat: no-repeat;
+          background-size: 0% 0.2em;
+          background-position: 100% 88%;
+          transition: background-size 0.25s ease-in; }
+          .overlay nav ul li .underline--style a:before, .overlay nav ul li .underline--style a:after {
+            background-image: linear-gradient(120deg, #84fab0 0%, #4CCC98 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.2em;
+            background-position: 100% 88%;
+            transition: background-size 0.25s ease-in; }
+          .overlay nav ul li .underline--style a:hover {
+            font-family: TitilliumWeb-Bold;
+            background-size: 74% 44%; }
+            @media screen and (max-width: 500px) {
+              .overlay nav ul li .underline--style a:hover {
+                background-size: 80% 30%;
+                background-position: 50% 70%; } }
+          @media screen and (max-width: 500px) {
+            .overlay nav ul li .underline--style a {
+              font-size: 1.5em;
+              text-align: center; } }
 
 @keyframes fadeInRight {
   0% {

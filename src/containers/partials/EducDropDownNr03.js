@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
 
-import EducationPortrait from '../containers/EducationPortrait';
+import EducationPortrait from '../EducationPortrait';
 
-import homeBanner from '../assets/images/home-banner.jpeg';
-import whiteMask from '../assets/images/white_mask.png';
-import '../css/AboutUs.css';
-import '../css/EducationPage.css';
+import '../../css/AboutUs.css';
+import '../../css/EducationPage.css';
 
-import andlitmaski from '../assets/images/andlitmaski.jpg';
-import varasalvi from '../assets/images/varasalvi.jpg';
-import kokosharsapa from '../assets/images/kokosharsapa.jpg';
-import svitalyktareydir from '../assets/images/svitalyktareydir.jpg';
-import harnaering from '../assets/images/harnaering.jpg';
+import andlitmaski from '../../assets/images/andlitmaski.jpg';
+import varasalvi from '../../assets/images/varasalvi.jpg';
+import kokosharsapa from '../../assets/images/kokosharsapa.jpg';
+import svitalyktareydir from '../../assets/images/svitalyktareydir.jpg';
+import harnaering from '../../assets/images/harnaering.jpg';
 
 
 import $ from 'jquery';

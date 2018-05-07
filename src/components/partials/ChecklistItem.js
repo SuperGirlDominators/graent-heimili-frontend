@@ -22,11 +22,11 @@ class ChecklistItem extends Component {
         $(this).find(".fa-question").css("color", "#249084");
         $(this).css('background-color', '#fff');
       });
-     
     });
   }
 
   onItemClick() {
+    this.props.count();
     this.props.onToggle(this.props.checklist.checklistID);
   }
 
@@ -41,7 +41,7 @@ class ChecklistItem extends Component {
     return (
       <div className='label_wrap'>
         <label className='my-checklist' id="checkbox">
-            <input type='checkbox'  onClick={this.onItemClick} type='checkbox' checked={checklist.value } />
+            <input type='checkbox' id="checklist_box" onClick={this.onItemClick} type='checkbox' checked={checklist.value } />
             <span>{checklist.checklistItem}</span>
             <button onClick={this.handleClick}  className="checklist_tip c_tip q1" >
               <i className="fas fa-question"></i>

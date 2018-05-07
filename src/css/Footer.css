@@ -5,6 +5,10 @@
     cursor: pointer;
     border: 2px solid #249084; }
 
+@media screen and (max-width: 992px) {
+  .socials_content {
+    position: relative !important; } }
+
 .share-social .social {
   display: inline-block;
   width: 40px;
@@ -22,3 +26,7 @@
     color: #249084;
     cursor: pointer;
     border: 2px solid #249084; }
+
+@media screen and (max-width: 500px) {
+  .share-social {
+    text-align: center; } }

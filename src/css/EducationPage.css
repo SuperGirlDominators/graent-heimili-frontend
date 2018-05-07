@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: TitilliumWeb-Bold;
   src: url("../assets/fonts/TitilliumWeb-Bold.ttf"); }
@@ -24,8 +25,7 @@ body {
 #abouteducation {
   background: linear-gradient(90deg, #249084, #3EB490, #4CCC98, #54D99C, #68FFA8);
   margin: 0 auto;
-  padding: 0;
-  height: 100vh; }
+  padding: 0; }
 
 .target {
   display: block;
@@ -51,9 +51,16 @@ body {
   height: 100vh; }
   @media screen and (max-width: 768px) {
     .luminance-target-education {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 1100px;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
       -webkit-mask-image: none;
       mask-image: none;
-      opacity: 0.8; } }
+      opacity: 0.2; } }
 
 .education {
   font-family: 'Titillium Web', sans-serif;
@@ -78,7 +85,16 @@ body {
   padding-bottom: 50px; }
   @media screen and (max-width: 500px) {
     .educationSubtext {
-      font-size: 1.2em;
+      display: none; } }
+
+.educationSubtext-mobile {
+  display: none; }
+  @media screen and (max-width: 500px) {
+    .educationSubtext-mobile {
+      display: block;
+      font-family: 'Titillium Web', sans-serif;
+      color: white;
+      font-size: 18px;
       margin-left: 30px;
       margin-right: 20px; } }
 
@@ -151,7 +167,8 @@ body {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); }
   @media screen and (max-width: 1024px) {
     .dropbtn {
-      width: 100%; } }
+      width: 90%;
+      margin-left: 20px; } }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown2 {
@@ -172,7 +189,8 @@ body {
   padding: 12px 0px; }
   @media screen and (max-width: 1024px) {
     .dropdown2-content {
-      width: 100%; } }
+      width: 90%;
+      margin-left: 20px; } }
 
 /* Links inside the dropdown */
 .dropdown2-content a {
@@ -225,3 +243,10 @@ body {
 
 .linkStyle:hover {
   text-decoration: underline; }
+
+/*miðjusetja kassana í mobile*/
+.centerItems {
+  display: block; }
+  @media screen and (max-width: 500px) {
+    .centerItems {
+      margin-left: 40px; } }

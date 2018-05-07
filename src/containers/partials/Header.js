@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../css/Header.css';
+import '../../css/Headers.css';
 import { NavLink } from 'react-router-dom';
 import logoGreen from '../../assets/images/Logo_graent.png';
 import logoWhite from '../../assets/images/LOGO_2.png';
@@ -16,6 +16,7 @@ class Header extends Component {
     };
     this.onStatusClick = this.onStatusClick.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   onStatusClick() {
@@ -34,10 +35,25 @@ class Header extends Component {
   }
 
   handleLogout() {
-    firebase.auth().signOut().then(function() {
+    const context = this;
+    /* firebase.auth().signOut().then(function() {
       console.log('Signed Out');
     }, function(error) {
       console.error('Sign Out Error', error);
+    });*/ 
+    fetch("http://localhost:3003/api/logout", {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        'Accept':'application/json'
+      }),
+      credentials: 'include', // Don't forget to specify this if you need cookies
+    }).then(response => {
+      console.log(response);
+      context.props.history.push('/');
+    })
+    .catch(err => {
+      console.log("The error is ", err)
     });
   }
 
@@ -55,7 +71,8 @@ class Header extends Component {
     return (
       <div>
         <header className={scrolled}>
-          <nav className="navbar navbar-inverse container">
+          <div className="container">
+          <nav className="navbar navbar-inverse">
             <div className="container-fluid">
               <div className="navbar-left">
                 <div className="logo ">
@@ -76,13 +93,33 @@ class Header extends Component {
                   <div className={`overlay ${this.state.open}`} id="overlay">
                     <nav className="overlay-menu">
                       <ul>
-                        <li><NavLink to="/">Forsíða</NavLink></li>
-                        <li><NavLink to="/about-game">Um leikinn</NavLink></li>
-                        <li><NavLink to="/education">Fræðsluefni</NavLink></li>
-                        <li><NavLink to="/about-us">Um okkur</NavLink></li>
-                        <li><NavLink to="/companies">Samstarfsaðilar</NavLink></li>
-                        <li id="login"><NavLink to="/#login_popup">Innskráning</NavLink></li>
-                        <li id="logout"><a onClick={this.handleLogout}>Útskráning</a></li>
+                        <li>
+                          <span className = "underline--style">
+                            <NavLink to="/about-game">Um listann</NavLink>
+                          </span>
+                        </li>
+                        <li>
+                          <span className = "underline--style">
+                            <NavLink to="/about-us">Um okkur</NavLink>
+                          </span>
+                        </li>
+                        <li>
+                          <span className = "underline--style"><NavLink to="/education">Fræðsluefni</NavLink>
+                          </span>
+                        </li>
+                        <li>
+                          <span className = "underline--style">
+                            <NavLink to="/companies">Styrktaraðilar</NavLink>
+                          </span>
+                        </li>
+                        <li id="login">
+                          <span className = "underline--style">
+                            <NavLink to="/#login_popup">Innskráning</NavLink>
+                          </span>
+                        </li>
+                        <li id="logout">
+                          <span className = "underline--style"><a onClick={this.handleLogout}>Útskráning</a></span>
+                        </li>
                       </ul>
                     </nav>
                   </div>
@@ -90,6 +127,7 @@ class Header extends Component {
               </ul>
             </div>
           </nav>
+          </div>
         </header>
       </div>
     );

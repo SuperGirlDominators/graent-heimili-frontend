@@ -1,35 +1,33 @@
 import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
 
-import EducationPortrait from '../containers/EducationPortrait'
+import EducationPortrait from '../EducationPortrait';
 
-import homeBanner from '../assets/images/home-banner.jpeg';
-import whiteMask from '../assets/images/white_mask.png';
-import '../css/AboutUs.css';
-import '../css/EducationPage.css';
+import '../../css/AboutUs.css';
+import '../../css/EducationPage.css';
 
-import mena from '../assets/images/mena.jpg';
-import mistur from '../assets/images/mistur.jpg';
-import graenviska from '../assets/images/graenviska.jpg';
+import mena from '../../assets/images/mena.jpg';
+import mistur from '../../assets/images/mistur.jpg';
+import graenviska from '../../assets/images/graenviska.jpg';
 
-import mammaveitbest from '../assets/images/mammaveitbest.jpg';
-import matarbur from '../assets/images/matarbur.jpg';
-import heilsuhusid from '../assets/images/heilsuhusid.jpg';
+import mammaveitbest from '../../assets/images/mammaveitbest.jpg';
+import matarbur from '../../assets/images/matarbur.jpg';
+import heilsuhusid from '../../assets/images/heilsuhusid.jpg';
 
-import tehusid from '../assets/images/tehusid.jpg';
-import lauga from '../assets/images/lauga.jpg';
-import baendur from '../assets/images/baendur.jpg';
+import tehusid from '../../assets/images/tehusid.jpg';
+import lauga from '../../assets/images/lauga.jpg';
+import baendur from '../../assets/images/baendur.jpg';
 
-import kolaportid from '../assets/images/kolaportid.jpg';
-import klaran from '../assets/images/klaran.jpg';
-import sostrene from '../assets/images/sostrene.jpg';
+import kolaportid from '../../assets/images/kolaportid.jpg';
+import klaran from '../../assets/images/klaran.jpg';
+import sostrene from '../../assets/images/sostrene.jpg';
 
-import org from '../assets/images/org.jpg';
-import hagkaup from '../assets/images/hagkaup.jpg';
-import bonus from '../assets/images/bonus.jpg';
+import org from '../../assets/images/org.jpg';
+import hagkaup from '../../assets/images/hagkaup.jpg';
+import bonus from '../../assets/images/bonus.jpg';
 
-import kronan from '../assets/images/kronan.jpg';
-import gamur from '../assets/images/gamur.jpg';
+import kronan from '../../assets/images/kronan.jpg';
+import gamur from '../../assets/images/gamur.jpg';
 
 import $ from 'jquery';
 import Waypoint from 'react-waypoint';

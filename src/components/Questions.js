@@ -32,27 +32,55 @@ class Questions extends Component {
   componentWillMount(){
     document.body.id= "quiz_page";
     $(document).ready(function(){
+          //toggle view of up and down button
       $('.view_more').click(function(){
+        $('.view_up').css("opacity", "1");
+        $(this).addClass("not_active");
+        $('.view_up').removeClass("not_active");
         $('.label_wrap').css("transform","translate(0,-480px)");
-        $('.view_up').css("display","block");
-        $(this).hide();
-        console.log('i updated')
       });
 
       $('.view_up').click(function(){
-        $('.label_wrap').css("transform","translate(0,0)");
-        $('.view_more').css("display","block");
-        $(this).hide();
+        $(this).css("opacity", "0.4");
+        $(this).addClass("not_active");
+        $('.view_more').removeClass("not_active");
+        $('.label_wrap').css("transform","translate(0)");
       });
+  
     });
   }
 
   getNextQuestion() {
     const currQuest = { currentQuestion: this.state.currentQuestion + 1 };
+    let curentQuestion = currQuest.currentQuestion;
+    console.log(curentQuestion)
+    if(curentQuestion === 1) {
+      $('#quiz_page').addClass('BG_1'); 
+      $('.quiz_tip').addClass('BG_1'); 
+      $('.luminance-target').addClass('mask_position'); 
+    }
+    else if(curentQuestion === 2) {
+      $('#quiz_page').removeClass('BG_1'); 
+      $('#quiz_page').addClass('BG_2'); 
+      $('.quiz_tip').removeClass('BG_1'); 
+      $('.quiz_tip').addClass('BG_2'); 
+    }
+    else if(curentQuestion === 3) {
+      $('#quiz_page').removeClass('BG_2'); 
+      $('#quiz_page').addClass('BG_3'); 
+      $('.quiz_tip').removeClass('BG_2'); 
+      $('.quiz_tip').addClass('BG_3'); 
+    }
+    // else if(curentQuestion >3) {
+    //   $('#quiz_page').removeClass('BG_3'); 
+    // }
+
+ 
+
 
     if(currQuest.currentQuestion === this.props.questions.length) {
       this.handleSubmit();
-    }
+    } 
     else {
       this.setState(currQuest);
     }
@@ -61,18 +89,18 @@ class Questions extends Component {
   handleSubmit() {
     if(firebase.auth().currentUser) {
       // console.log(firebase.auth().currentUser)
-      this.setState({login:true});
+      this.setState({login:true}); 
     }
-    this.props.actions.postChoices(this.props.choices);
     const choicesValue = this.props.choices;
     const unSelectedChoices = choicesValue.filter((choice)=> {
-      if(choice.value) {
-        return false;
-      } else {
-        return true;
+      return !choice.value;
+    });
+    this.props.actions.postChoices(unSelectedChoices, err => {
+      if (!err) {
+        this.props.history.push('/loader')
       }
     });
-    this.postChecklist(unSelectedChoices);
+    // this.postChecklist(unSelectedChoices);
   }
 
   postChecklist(unSelectedChoices) {
@@ -96,13 +124,12 @@ class Questions extends Component {
       // this.props.history.push('/loader')
     })
     .then(response => {
+      console.log(response)
       if (this.props.profileData.user) {
         this.props.history.push('/loader')
     } else {
         return false;
     }
-      // this.props.profileData.user ? this.props.history.push('/loader') : false;
-
       // this.props.profileData.user ? this.props.history.push('/checklist') : false;
     })
     .catch( err => {
@@ -119,15 +146,11 @@ class Questions extends Component {
     clickedItems.push(clickedItem);
   }
 
-
-
   render() {
     const { questions } = this.props;
-    console.log(questions)
     let { choices } = this.props;
     choices = choices.filter(choice => choice.questionID === this.state.currentQuestion+1);
     const isAChoiceSelected = choices.some(choice => choice.value);
-    console.log(this.state.currentQuestion);
 
    const bannerImages = [
       {
@@ -168,29 +191,35 @@ class Questions extends Component {
               question={questions[this.state.currentQuestion]}
             />
             <button className="view_up"><i className="up"></i></button>
-            <div className="col-md-8 choice_selection">
-              {
-                choices.map((choice, i) =>
-                  <Choice key={i} choice={choice} onToggle={this.props.actions.toggleChoice}/>
-                )
-              }
+            <div className="col-12 col-sm-12 col-md-7 choice_selection">
+              <div className="wrapper">
+                <div className="content_wrapper">
+                  {
+                    choices.map((choice, i) =>
+                      <Choice key={i} choice={choice} onToggle={this.props.actions.toggleChoice}/>
+                    )
+                  }
+                </div>
+              </div>
             </div>
+          
             <button className="view_more"><i className="down"></i></button>
 
-              <div className="mb_quiz_tip">
+            
+          </div>
+
+        
+
+        </div>
+        <div className="mb_quiz_tip">
             <Question
               question={questions[this.state.currentQuestion]}
             />
           </div>
-          </div>
-
-
-
-        </div>
           { isAChoiceSelected &&
             <a className="play-button-outer" href={(this.state.currentQuestion === this.props.questions.length-1 ) && (!this.state.login) ? "#login_popup": "# " } style={{ display: "block" }} id="next_question" onClick={this.getNextQuestion}>
               <div className="play-button">
-                <p className="button_text">áfram</p>
+                <p className="button_text">LJÚKA</p>
               </div>
             </a>
           }

@@ -13,7 +13,6 @@ body {
     background: linear-gradient(90deg, #249084, #3EB490, #4CCC98, #54D99C, #68FFA8);
     margin: 0 auto;
     padding: 0;
-    height: 100vh;
   }
 
 .target {
@@ -40,11 +39,19 @@ body {
     height: 100vh;
 
     @media screen and (max-width: $breakpoint-tablet) {
+        position: absolute;
+        right: 0;
+        top:0;
+        width:1100px;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
         -webkit-mask-image: none;
         mask-image: none;
-        opacity:0.8;
+        opacity:0.2;
     }
 }
+
 
 .education {
     font-family: 'Titillium Web', sans-serif;
@@ -68,12 +75,23 @@ body {
         font-size: 20px;
         color: white;
         padding-bottom: 50px;
-    
+        
         @media screen and (max-width: $breakpoint-phone) {
-            font-size: 1.2em;
-            margin-left:30px;
-            margin-right:20px;
+            display: none;
           }
+        }
+
+    .educationSubtext-mobile {
+        display: none;
+        
+        @media screen and (max-width: $breakpoint-phone) {
+            display: block;
+            font-family: 'Titillium Web', sans-serif;
+            color: white;
+            font-size: 18px;
+            margin-left:30px;
+            margin-right: 20px;
+            }
         }
 
     .education2 {
@@ -89,7 +107,7 @@ body {
             font-size: 2em;
             margin-left:25px;
             margin-right:20px;
-      }
+            }
         }
 
     .scroll-downs {
@@ -145,7 +163,8 @@ body {
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
         @media screen and (max-width: $breakpoint-desktop) {
-            width: 100%;
+            width: 90%;
+            margin-left:20px;
           }
       }
     
@@ -169,7 +188,8 @@ body {
         padding: 12px 0px;
 
         @media screen and (max-width: $breakpoint-desktop) {
-            width: 100%;
+            width: 90%;
+            margin-left:20px;
           }
     }
     
@@ -205,8 +225,6 @@ body {
         margin-top:100px;
     }
    
-    
-
     .dropdown {
         position: relative;
         display: inline-block;
@@ -230,12 +248,7 @@ body {
       display: block;
     }
 
-
-
-  
-
     .linkStyle a {
-      
         color: #249084;
         font-weight: 600;
       }
@@ -245,4 +258,14 @@ body {
       }
 
 
-    
+      /*miðjusetja kassana í mobile*/
+   .centerItems {
+       display: block;
+
+       @media screen and (max-width: $breakpoint-phone) {
+        margin-left: 40px;
+      }
+   }
+
+
+ 

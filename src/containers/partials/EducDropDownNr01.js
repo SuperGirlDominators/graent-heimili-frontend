@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
 
-import EducationPortrait from '../containers/EducationPortrait';
+import EducationPortrait from '../EducationPortrait';
 
-import homeBanner from '../assets/images/home-banner.jpeg';
-import whiteMask from '../assets/images/white_mask.png';
-import '../css/AboutUs.css';
-import '../css/EducationPage.css';
+import '../../css/AboutUs.css';
+import '../../css/EducationPage.css';
 
-import pappi from '../assets/images/pappi.jpg';
-import plast from '../assets/images/plast.jpg';
-import flöskur from '../assets/images/floskurOgDosir.jpg';
+import pappi from '../../assets/images/pappi.jpg';
+import plast from '../../assets/images/plast.jpg';
+import flöskur from '../../assets/images/floskurOgDosir.jpg';
 
-import molta from '../assets/images/molta.jpg';
-import malmur from '../assets/images/malmur.jpg';
-import kertavax from '../assets/images/kertavax.jpg';
+import molta from '../../assets/images/molta.jpg';
+import malmur from '../../assets/images/malmur.jpg';
+import kertavax from '../../assets/images/kertavax.jpg';
 
-import ljosaperur from '../assets/images/ljosaperur.jpg';
-import rafhlodur from '../assets/images/rafhlodur.jpg';
-import gler from '../assets/images/gler.jpg';
+import ljosaperur from '../../assets/images/ljosaperur.jpg';
+import rafhlodur from '../../assets/images/rafhlodur.jpg';
+import gler from '../../assets/images/gler.jpg';
 
 import $ from 'jquery';
 import Waypoint from 'react-waypoint';

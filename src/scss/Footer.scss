@@ -11,6 +11,12 @@
     }
 }
 
+.socials_content {
+    @media screen and (max-width: $breakpoint-mediumDown) {
+        position: relative !important;
+    }
+}
+
 .share-social {
 
     .social {
@@ -32,6 +38,10 @@
             cursor: pointer;
             border: 2px solid #249084;
         }
+    }
+
+    @media screen and (max-width: $breakpoint-phone) {
+        text-align: center;
     }
 }
 

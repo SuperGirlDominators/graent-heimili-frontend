@@ -5,32 +5,42 @@ header {
     z-index: 2;
     top: 0px;
     width:100%;
-}
 
-.navbar-inverse {
-    background-color: transparent;
-    border-color: transparent;
+    .navbar-inverse {
+        background-color: transparent;
+        border-color: transparent;
+    
+          .container-fluid {
+            padding: 0;
 
-      .container-fluid {
-        padding:0;
-      }
-}
+            .navbar-right {
+                margin-right: 0px !important;
 
-.navbar {
-    margin-top: 4%;
-    padding:0;
+                @media screen and (max-width: $breakpoint-mediumDown) {
+                    margin-right: 0px !important;
+                }
 
-    @media screen and (max-width: $breakpoint-tablet) {
-        padding-left:15px;
+            }
+          }
+    }
+    
+    .navbar {
+        margin-top: 4%;
+        // padding-left: 15px;
+        // padding-right: 15px;
+    
+        @media screen and (max-width: $breakpoint-tablet) {
+            // padding-left:15px;
+        }
     }
 }
 
 .logo img {
-    width: 150px;
+    width: 120px;
 }
 
 .shrink .logo img {
-    width: 125px;
+    width: 120px;
 }
 
 .shrink .navbar {
@@ -55,7 +65,7 @@ header {
 .button_container {
     position: relative;
     top: 5%;
-    right: 2%;
+    right: 0;
     height: 27px;
     width: 35px;
     cursor: pointer;
@@ -123,11 +133,19 @@ header {
     transition: opacity .35s, visibility .35s, width .35s;
     overflow: hidden;
 
+    .overlay-menu {
+
+        @media screen and (max-width: 800px) {
+            padding-right: 0px;
+        }
+    }
+
     &.open {
         opacity: 10;
         visibility: visible;
         height: 100%;
         width: 26%;
+        padding: 30px;
 
         @media screen and (max-width: $breakpoint-phone) {
             width:100%;
@@ -180,21 +198,47 @@ header {
                 position: relative;
                 opacity: 0;
 
-                a {
-                    display: block;
-                    // position: relative;
-                    font-family: TitilliumWeb-Regular;
-                    font-size: 1em;
-                    color: #249084;
-                    text-decoration: none;
+                .underline--style {
 
-                    &:hover, &:focus, &:active:after {
-                        width: 100%;
-                        text-decoration: underline;
-                        transition-timing-function: ease-out;
-                        transition: 0.25s;
-                        cursor: pointer;
+                    a {
+                        display: block;
+                        font-family: TitilliumWeb-Regular;
+                        font-size: 1.2em;
+                        color: #249084;
+                        text-decoration: none;
+                        cursor:pointer;
+                        background-image: linear-gradient(120deg, #84fab0 0%, #4CCC98 100%);
+                        background-repeat: no-repeat;
+                        background-size: 0% 0.2em;
+                        background-position: 100% 88%;
+                        transition: background-size 0.25s ease-in;
+
+                        &:before, &:after {
+                            background-image: linear-gradient(120deg, #84fab0 0%, #4CCC98 100%);
+                            background-repeat: no-repeat;
+                            background-size: 100% 0.2em;
+                            background-position: 100% 88%;
+                            transition: background-size 0.25s ease-in;
+                        }
+
+                        &:hover {
+                            font-family: TitilliumWeb-Bold;
+                            background-size: 74% 44%; 
+
+                            @media screen and (max-width: $breakpoint-phone) {
+                                background-size: 80% 30%; 
+                                background-position: 50% 70%;
+                            }
+                        }
+                        
+                        @media screen and (max-width: $breakpoint-phone) {
+                            font-size: 1.5em;
+                            text-align:center;
+                        }
+                       
                     }
+
+
                 }
             }
         }

@@ -18,12 +18,24 @@ font-weight: 600;
 font-size: 40px;
 color: white;
 margin-top: 168px; 
-margin-bottom: 20px;    
+margin-bottom: 20px;
+
+  @media screen and (max-width: $breakpoint-phone) {
+    font-size: 0px;
+  }
 }
+
+
 .aboutImage {
     height: 278px;
-    width: 100%;
+    width: 100%; 
 }
+/*til þess að ljósmyndir passi í hvíta kassann við skölun*/
+ img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .kassi div:first-child {
 background-color: white;
 /*width: 278px; */
@@ -35,6 +47,7 @@ color: #249084;
 /*padding-top: 6px;*/
 }
 
+/*örvar*/
 .kassi svg {
     right: 25px;
     top: 11px;

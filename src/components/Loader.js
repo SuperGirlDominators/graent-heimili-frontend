@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../css/Loader.css';
+import $ from 'jquery';
+
 
 
 class Loader extends Component {
@@ -15,6 +17,7 @@ class Loader extends Component {
 
     componentWillMount(){
         document.body.id= "loader";
+        $('body').removeClass('BG_3'); 
     }
 
     render() {

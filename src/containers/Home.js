@@ -5,9 +5,35 @@ import homeBanner from '../assets/images/home-banner.jpeg';
 
 
 class Home extends Component {
-  componentWillMount(){
+  
+  componentWillMount() {
     document.body.id= "homepage";
+
+    function handleErrors(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response;
+    }
+
+    fetch("http://localhost:3003/api/profile", {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        'Accept':'application/json'
+      }),
+      credentials: 'include', // Don't forget to specify this if you need cookies
+    })
+    .then(handleErrors)
+    .then(response => {
+      console.log(response);
+      this.props.history.push('checklist');
+    })
+    .catch(err => {
+      console.log("The error is ", err)
+    });
   }
+
   render() {
     return (
       <div>

@@ -4,7 +4,7 @@ import '../../css/Footer.css';
 class Footer extends Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <div className="share-social">
           <a className="social overlay_icon" href="https://pinterest.com">
             <i className="fab fa-pinterest-p"></i>

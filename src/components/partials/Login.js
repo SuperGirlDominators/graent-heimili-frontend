@@ -23,22 +23,49 @@ class Login extends Component {
  }
 
   componentDidMount() {
-    $(document).ready(function() {
-      $('.button-two').hover(function(){
-        $('.button-one').removeClass('focus');
-        $('.button-two').addClass('focus');
+    $(document).ready(function() {     
+      $('.button-two').hover(function(){   
+        $('.button-one').removeClass('focus');  
+        $('.button-two').addClass('focus');  
         $("#choice").html("Ekki með aðgang?");
-        $("#choice_1").html("Skráðu þig inn á eftir");
+        $("#choice_1").html("Skráðu þig inn á eftir");      
       });
 
-      $('.button-one').hover(function(){
-        $('.button-two').removeClass('focus');
-        $('.button-one').addClass('focus');
+      $('.button-one').hover(function(){   
+        $('.button-two').removeClass('focus');  
+        $('.button-one').addClass('focus');    
         $("#choice").html("EÐA");
-        $("#choice_1").html("Skelltu þér þá yfir í nýskráningu!");
+        $("#choice_1").html("Skelltu þér þá yfir í nýskráningu!");   
       });
-    });
+    }); 
   }
+
+  /**
+   * @param {string} url The session login endpoint.
+   * @param {string} idToken The ID token to post to backend.
+   * @param {?string} csrfToken The CSRF token to send to backend.
+   * @return {jQuery.jqXHR<string>} A jQuery promise that resolves on completion.
+   */
+  /*postIdTokenToSessionLogin(url, idToken, csrfToken) {
+    const headers = new Headers({
+      "Content-Type": "application/json",
+      'Accept':'application/json'}
+    );
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        idToken: idToken, 
+        // csrfToken: csrfToken
+      }),
+      headers,
+      credentials: 'include', // Don't forget to specify this if you need cookies
+    }).then(response => {
+      console.log('user created',response)
+    })
+    .catch( err => {
+      console.log("The error is ", err)
+    });
+  };*/
 
   componentWillMount(){
     // Initialize Firebase
@@ -56,8 +83,7 @@ class Login extends Component {
   }
 
   handleUserLoginResponse(result) {
-    console.log(result)
-    this.props.actions.createProfile(result);
+    this.props.actions.sessionLogin(result);
   }
 
   handleFacebookLogin() {
@@ -68,13 +94,11 @@ class Login extends Component {
     firebase.auth().signInWithPopup(provider)
       .then((result) => {
         console.log(result);
-        //const id_token = result.user.getAuthResponse().id_token;
         context.handleUserLoginResponse(result);
         this.setState({navigate:true})
       })
       .catch((error) => {
         console.log(error);
-        // alert(JSON.stringify(error));
       })
   }
 
@@ -86,13 +110,11 @@ class Login extends Component {
     firebase.auth().signInWithPopup(provider)
       .then((result) => {
         console.log(result);
-        //const id_token = result.user.getAuthResponse().id_token;
         context.handleUserLoginResponse(result);
         this.setState({navigate:true})
       })
       .catch((error) => {
         console.log(error);
-        // alert(JSON.stringify(error));
       })
   }
 
@@ -115,17 +137,29 @@ class Login extends Component {
   }
 
   handleLogout() {
-    firebase.auth().signOut().then(function() {
+    /*firebase.auth().signOut().then(function() {
       console.log('Signed Out');
     }, function(error) {
       console.error('Sign Out Error', error);
+    });*/
+    fetch("http://localhost:3003/api/logout", {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        'Accept':'application/json'
+      }),
+      credentials: 'include', // Don't forget to specify this if you need cookies
+    }).then(response => {
+      console.log(response);
+      this.props.history.push('/');
+    })
+    .catch(err => {
+      console.log("The error is ", err)
     });
   }
 
-
-
   render() {
-
+  
     const { navigate } = this.state
     if (navigate) {
       return <Redirect to={this.props.destination} push={true} />

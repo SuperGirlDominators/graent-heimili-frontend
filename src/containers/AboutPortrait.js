@@ -22,7 +22,7 @@ export default class AboutPortrait extends Component {
         const dropArrowClass = this.state.dropDownOpen ? "fa fa-caret-down" : "fa fa-caret-up";
 
         return (
-            <div className="col-md-3" style={{ paddingRight: 0, paddingLeft: 15 }}>
+            <div className="col-md-3 col-xs-9 centerItems" style={{ paddingRight: 0, paddingLeft: 15 }}>
                 <div className="gluggi" style={{ background: 'white'}}>
                     <img className="AboutImage" src={image} alt={name}/>
                     <div className={dropDownClass}>

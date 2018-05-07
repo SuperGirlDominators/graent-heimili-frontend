@@ -10,8 +10,14 @@
     box-sizing: inherit;
 }
 
-
-#aboutgame {
+body {
+  * {
+      &:before, &:after {
+          -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+      }
+  }
+&#aboutgame {
   background: linear-gradient(90deg, #249084, #3EB490, #4CCC98, #54D99C, #68FFA8);
   overflow: hidden;
   margin: 0 auto;
@@ -24,7 +30,7 @@
   height: auto;
   margin: 0 auto;
 }
-.luminance-target {
+.luminance-target-education {
   -webkit-mask-image: url('../assets/images/banner-mask.png');
   mask-image: url('../assets/images/banner-mask.png');
   mask-mode: luminance;
@@ -43,9 +49,16 @@
   height: 100vh;
 
   @media screen and (max-width: $breakpoint-tablet) {
+      position: absolute;
+      right: 0;
+      top:0;
+      width:1100px;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
       -webkit-mask-image: none;
       mask-image: none;
-      opacity:1;
+      opacity:0.2;
   }
 }
 
@@ -258,10 +271,3 @@ padding-right: 0px;
       padding-top: 11px;
     } 
   }
-
-/*
-  .next_button {
-    margin: auto;
-    width: 50%;
-  }
-  */
