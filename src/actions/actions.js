@@ -30,7 +30,7 @@ export const sessionLogin = (profileData) =>{
       fetch(url, {
         method: "POST",
         body: JSON.stringify({
-          idToken: idToken,
+          idToken: idToken, 
           // csrfToken: csrfToken
         }),
         headers: headers,
@@ -326,3 +326,14 @@ export const CurrentStep = (current_step)=> {
     current_step
   };
 }
+
+
+
+
+
+
+
+
+
+
+
